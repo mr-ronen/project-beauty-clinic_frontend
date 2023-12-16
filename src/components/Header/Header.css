@@ -1,0 +1,145 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  transition: background-color 0.3s;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.75); /* Slightly transparent */
+}
+
+.logo {
+  height: auto;
+  width: 10vw; /* Use viewport width for scalability */
+  max-width: 150px; /* Set a max width to prevent it from becoming too large */
+}
+
+.cart-icon {
+  height: 3.5vw; /* Use viewport width for scalability */
+  max-height: 40px; /* Set a max height to prevent it from becoming too large */
+  margin-left: auto;
+  margin-right: 4.5vw; /* Use viewport width for right margin */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2vw; /* Use viewport width for gap between menu items */
+  margin-left: 5vw; /* Use viewport width for left margin */
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2vw; /* Use viewport width for font size */
+  font-size: 16px; /* Set a max font size */
+  font-weight: 300;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+nav li:hover .dropdown {
+  display: block;
+}
+
+/* Media queries for responsive design */
+
+/* For extra-large size device */
+@media (min-width: 1200px) {
+  /* Styles for extra-large screens */
+}
+
+/* For desktop or large-size screen */
+@media (max-width: 1200px) and (min-width: 1024px) {
+  /* Styles for large screens */
+}
+
+/* For laptop or small-size screen */
+@media (max-width: 1024px) and (min-width: 768px) {
+  /* Adjust header styles for smaller screens */
+  .logo {
+    width: 12vw;
+  }
+
+  .cart-icon {
+    height: 4vw;
+  }
+
+  nav ul {
+    gap: 1.5vw;
+  }
+
+  nav a {
+    font-size: 1.1vw;
+  }
+}
+
+/* For tablets or iPad */
+@media (max-width: 768px) {
+  /* Adjust header styles for tablet screens */
+  .logo {
+    width: 15vw;
+  }
+
+  .cart-icon {
+    height: 5vw;
+    margin-right: 6.5vw;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2vw;
+    padding: 0;
+    align-items: center;
+  }
+
+  nav a {
+    font-size: 2vw;
+  }
+
+  .dropdown {
+    position: static; /* Dropdowns will flow in document layout */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  /* Adjust header styles for mobile screens */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 25vw;
+  }
+
+  .cart-icon {
+    height: 6vw;
+    margin-right: 9vw;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5vw;
+  }
+
+  nav a {
+    font-size: 3.5vw;
+  }
+}
