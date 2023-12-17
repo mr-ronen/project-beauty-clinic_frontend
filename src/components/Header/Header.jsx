@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
-import Carticon from "../../assets/images/L-icon.png"; // Replace with your cart icon path
+import Carticon from "../../assets/images/L-icon.png"; 
 import logo from "../../assets/images/logo.png";
-//import HamburgerIcon from "../../assets/images/hamburger-icon.png"; // Add your hamburger icon
+import Navigation from "../Navigation/Navigation";
 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +24,9 @@ const Header = () => {
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-      <img src={logo} alt="Logo" className="logo" />
+      <a href="/home">
+        <img src={logo} alt="Logo" className="logo" />
+      </a>
       <nav>
         <ul>
           <li>
@@ -60,8 +60,11 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <img src={Carticon} alt="Logo" className="cart-icon" />
-    </header>
+        <a href="/Cart">
+          <img src={Carticon} alt="Cart" className="cart-icon" />
+        </a>
+        <Navigation />
+      </header>
   );
 };
 

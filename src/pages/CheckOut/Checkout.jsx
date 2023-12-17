@@ -16,12 +16,16 @@ Redux Toolkit Usage: Important for managing checkout processes,
 
 const CheckOut = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state.product?.products) || []; //in empty array 
 
   useEffect(() => {
-    productService.getProducts().then((data) => {
-      dispatch(setProducts(data));
-    });
+    if (typeof productService.getProducts === 'function') {
+      productService.getProducts().then((data) => {
+        dispatch(setProducts(data));
+      });
+    } else {
+      console.error('productService.getProducts is not a function');
+    }
   }, [dispatch]);
 
   return (

@@ -1,0 +1,104 @@
+.hamburger {
+  display: none; /* Hidden by default */
+  margin-right: 7vw;
+}
+
+.hamburger-icon {
+  width: 30px; /* Adjust the width as necessary */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.nav.closed {
+  display: none; /* Hide when closed */
+}
+
+/* Style for navigation links */
+.nav ul {
+  list-style: none;
+  /* Other styles... */
+}
+
+/*.nav {
+   Default styles for large screens 
+}*/
+
+/*.nav.open {
+  Styles when the menu is open for mobile 
+}*/
+/* For tablet or ipad devices */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on tablet and mobile */
+    /* Style your hamburger icon */
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    height: 100%;
+    width: 22%; /* Adjust width of the slide-in menu */
+    background-color: white; /* Adjust background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav.open {
+    right: 0; /* Slide in */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav.closed {
+    display: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav ul {
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav ul li {
+    margin: 10px 0; /* Add some vertical space between items */
+  }
+
+  
+
+  .nav li a {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.3em;
+    /* other styling as needed */
+  }
+}
+
+/* For mobile devices */
+
+@media (max-width: 480px) {
+  /* Mobile specific styles */
+  .hamburger {
+    display: block; /* Show hamburger icon on tablet and mobile */
+    margin-right: 10vw;
+  }
+  .nav.closed {
+    display: none;
+  }
+
+  .nav {
+    width: 30%; /* Full width for smaller screens */
+  }
+  .nav.open {
+    display: block; /* Show the menu when hamburger is clicked */
+    /* Style your open menu */
+  }
+
+  /*.nav.open ul {
+     Adjust styles for mobile and tablet 
+  }*/
+}
