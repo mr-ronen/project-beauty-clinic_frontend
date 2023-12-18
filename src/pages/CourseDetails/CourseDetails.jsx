@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import Header from '../../components/Header/Header'
-import { useSelector, useDispatch } from 'react-redux';
-import { setProducts } from '../../redux/slices/productSlice';
+import React, { useEffect } from "react";
+import Header from "../../components/Header/Header";
+import { useSelector, useDispatch } from "react-redux";
+import { setProducts } from "../../redux/slices/productSlice";
+import Footer from "../../components/Footer/Footer";
 // Assume you have a service to fetch products
-import productService from '../../services/productService';
-
+import productService from "../../services/productService";
 
 const CourseDetails = () => {
   const dispatch = useDispatch();
@@ -16,18 +16,18 @@ const CourseDetails = () => {
     });
   }, [dispatch]);
 
-
   return (
     <>
-    <Header />
-    <h2>CourseDetails</h2>
-    <div>
+      <Header />
+      <h2>CourseDetails</h2>
+      <div>
         {products.map((product) => (
           <div key={product.id}>{product.name}</div>
         ))}
       </div>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default CourseDetails
+export default CourseDetails;

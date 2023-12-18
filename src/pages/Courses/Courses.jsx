@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../redux/slices/productSlice";
+import Footer from "../../components/Footer/Footer";
 // Assume you have a service to fetch products
 import productService from "../../services/productService";
+
 
 const Courses = () => {
   const dispatch = useDispatch();
@@ -28,6 +30,8 @@ const Courses = () => {
           <div key={product.id}>{product.name}</div>
         ))}
       </div>
+      <Footer />
+
     </>
   );
 };

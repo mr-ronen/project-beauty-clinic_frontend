@@ -1,0 +1,116 @@
+.footer {
+  width: 99%;
+  background: #f8f8f8; /* Adjust the color to match your design */
+  position: absolute;
+  
+  bottom: 0;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  /* Adjust the size as needed */
+  width: 120px;
+  height: auto;
+}
+
+.creator-text {
+  font-size: 12px;
+  position: absolute;
+  left: 10px;
+}
+
+.footer-info {
+  text-align: right;
+}
+
+.footer-info h4,
+.footer-info p,
+.footer-info input,
+.footer-info button {
+  margin-bottom: 10px; /* Space between elements */
+}
+
+.footer-info input {
+  text-align: right;
+  padding: 5px;
+  margin-right: 10px; /* Space between input and button */
+}
+.footer-info button {
+  padding: 5px;
+}
+
+.footer-photo {
+  /* Adjust the size as needed */
+  width: 100px;
+  height: auto;
+}
+
+.footer-links {
+  font-size: 14px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.footer-links a {
+  color: #333; /* Link color */
+  text-decoration: none;
+  margin: 0 10px; /* Space between links */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
+/* For mobile devices */
+@media (max-width: 480px) {
+    .footer-content {
+      flex-direction: column;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .creator-text, .footer-links {
+      margin: 10px 0;
+    }
+  }
+  
+  /* For tablets */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+
+    }
+    .footer-photo,.creator-text {
+        display: none;
+    }
+    
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .creator-text, .footer-links {
+      margin: 10px 0;
+    }
+  }
+  
+  /* For laptops */
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+    }
+  
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }

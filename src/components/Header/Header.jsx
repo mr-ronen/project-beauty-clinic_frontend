@@ -24,13 +24,13 @@ const Header = () => {
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-      <a href="/home">
+      <a href="/Home">
         <img src={logo} alt="Logo" className="logo" />
       </a>
       <nav>
         <ul>
           <li>
-            <a href="/contact">צור קשר</a>
+            <a href="/About">צור קשר</a>
           </li>
           <li>
             <a href="/shop">חנות</a>

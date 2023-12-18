@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../redux/slices/productSlice";
-
 import productService from "../../services/productService";
+import Footer from "../../components/Footer/Footer";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,8 @@ const Shop = () => {
           <div key={product.id}>{product.name}</div>
         ))}
       </div>
+      <Footer />
+
     </>
   );
 };
