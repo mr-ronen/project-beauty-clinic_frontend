@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  width: 50%;
+
+  background: #f1eeee;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px; /* Space between cards */
+}
+
+.card-image-container {
+  max-width: 50%;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: right; /* For RTL languages like Hebrew */
+}
+
+.card-title {
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.card-description {
+  color: #615f5f;
+  margin: 10px 0;
+}
+
+.card-button {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card-button:hover {
+  background: #0056b3;
+}

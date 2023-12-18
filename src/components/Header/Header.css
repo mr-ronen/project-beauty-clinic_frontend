@@ -58,8 +58,7 @@ nav li:hover .dropdown {
 
 /* Media queries for responsive design 
 
-@media (min-width: 1200px) {}
-@media (max-width: 1200px) and (min-width: 1024px) {Styles for large screens }  */
+@media (min-width: 1200px) {} @media (max-width: 1200px) and (min-width: 1024px) {Styles for large screens }  */
 
 /* For laptop or small-size screen */
 @media (max-width: 1024px) and (min-width: 768px) {

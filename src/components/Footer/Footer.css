@@ -1,8 +1,8 @@
 .footer {
-  width: 99%;
-  background: #f8f8f8; /* Adjust the color to match your design */
-  position: absolute;
-  
+  width: 100%;
+  background: #f8f8f8; 
+  position: relative;
+  clear: both;
   bottom: 0;
   box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -14,7 +14,6 @@
 }
 
 .footer-logo {
-  /* Adjust the size as needed */
   width: 120px;
   height: auto;
 }
@@ -46,7 +45,6 @@
 }
 
 .footer-photo {
-  /* Adjust the size as needed */
   width: 100px;
   height: auto;
 }
@@ -59,58 +57,60 @@
 }
 
 .footer-links a {
-  color: #333; /* Link color */
+  color: #333; 
   text-decoration: none;
   margin: 0 10px; /* Space between links */
 }
 
 .footer-links a:hover {
-  text-decoration: underline; /* Underline on hover for better UX */
+  text-decoration: underline; 
 }
 /* For mobile devices */
 @media (max-width: 480px) {
-    .footer-content {
-      flex-direction: column;
-    }
-  
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .creator-text, .footer-links {
-      margin: 10px 0;
-    }
+  .footer-content {
+    flex-direction: column;
   }
-  
-  /* For tablets */
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
 
-    }
-    .footer-photo,.creator-text {
-        display: none;
-    }
-    
-    .footer-bottom {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .creator-text, .footer-links {
-      margin: 10px 0;
-    }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* For laptops */
-  @media (max-width: 1024px) and (min-width: 768px) {
-    .footer-content {
-      flex-direction: row;
-    }
-  
-    .footer-bottom {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+
+  .creator-text,
+  .footer-links {
+    margin: 10px 0;
   }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-photo,
+  .creator-text {
+    display: none;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .creator-text,
+  .footer-links {
+    margin: 10px 0;
+  }
+}
+
+/* For laptops */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
