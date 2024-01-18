@@ -5,10 +5,10 @@ import About from "./pages/About/About";
 import NoPage from "./pages/NoPage/NoPage";
 import Courses from "./pages/Courses/Courses";
 import Cart from "./pages/Cart/Cart";
-import UserAuthentication from "./pages/UserAuthentication/UserAuthentication";
+import UserRegistration from "./pages/UserRegistration/UserRegistration";
 import CourseDetails from "./pages/CourseDetails/CourseDetails";
 import CheckOut from "./pages/CheckOut/CheckOut";
-
+import LogIn from "./pages/LogIn/LogIn";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/UserAuthentication" element={<UserAuthentication />} />
+          <Route path="/UserRegistration" element={<UserRegistration />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Shop" element={<Shop />} />
           <Route path="/About" element={<About />} />
@@ -24,6 +24,7 @@ function App() {
           <Route path="/CourseDetails" element={<CourseDetails />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/CheckOut" element={<CheckOut />} />
+          <Route path="/LogIn" element={<LogIn />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

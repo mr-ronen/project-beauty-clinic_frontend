@@ -1,0 +1,68 @@
+.user-registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e9e9e9;
+}
+
+.registration-card {
+  padding: 20px;
+  text-align: center;
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1); /* Smoother shadow */
+  border-radius: 10px; /* Rounder corners */
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff; /* Brighter card for contrast */
+  margin: 20px; /* Space around the card */
+}
+
+.registration-card h2 {
+  margin-bottom: 20px;
+  color: #333; /* Darker color for headline */
+  font-family: "Open Sans", sans-serif; /* Modern font */
+}
+
+.invitation {
+  font-size: 18px; /* Larger text */
+  margin-bottom: 30px; /* More space */
+  color: #555; /* Subtle color for text */
+}
+
+.input-group input {
+  width: 85%;
+  padding: 15px;
+  border: 2px solid #ddd; /* Thicker border */
+  border-radius: 5px; /* Slightly rounder edges */
+  font-size: 16px; /* Larger font size */
+}
+
+.error-message {
+  color: #e74c3c; /* Standard error color */
+  margin-top: -15px; /* Align with the input fields */
+  margin-bottom: 20px; /* Space before the button */
+}
+
+.submit-button {
+  width: 85%; /* Match input field width */
+  padding: 15px 20px; /* Larger padding */
+  border: none;
+  background-color: #85c8a3;
+  color: white;
+  border-radius: 5px; /* Consistent with input fields */
+  cursor: pointer;
+  font-size: 18px; /* Larger font size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.submit-button:hover {
+  background-color: #379683; /* Darker shade on hover */
+}
+
+.login-link {
+  text-align: center;
+  font-size: 14px; /* Smaller font size for subtext */
+  margin-top: 20px;
+  color: #6c757d;
+  cursor: pointer;
+}

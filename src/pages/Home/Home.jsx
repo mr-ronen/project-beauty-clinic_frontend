@@ -34,8 +34,9 @@ const Home = () => {
         <Card
           title="טיפולים"
           description="אני מזמינה אותך אלי לקליניקה לקבל מראה טבעי, מודרני ועדין המותאם במיוחד בשבילך."
-          buttonText="לפרטים נוספים"
           imageUrl={cardphoto}
+          buttonText="לפרטים נוספים"
+          
         />
         <OpCard
           title="קורסים"
