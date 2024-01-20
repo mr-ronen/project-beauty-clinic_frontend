@@ -3,35 +3,17 @@ import Header from "../../components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../redux/slices/productSlice";
 import Footer from "../../components/Footer/Footer";
-// Assume you have a service to fetch products
-import productService from "../../services/productService";
-
+import cardphoto from "../../assets/images/course.png";
+import "./Courses.css";
 
 const Courses = () => {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.product?.products) || []; //in empty array 
-
-  useEffect(() => {
-    if (typeof productService.getProducts === 'function') {
-      productService.getProducts().then((data) => {
-        dispatch(setProducts(data));
-      });
-    } else {
-      console.error('productService.getProducts is not a function');
-    }
-  }, [dispatch]);
-
   return (
     <>
       <Header />
+      <div className="herob">{}</div>
       <h2>Courses</h2>
-      <div>
-        {products.map((product) => (
-          <div key={product.id}>{product.name}</div>
-        ))}
-      </div>
-      <Footer />
 
+      <Footer />
     </>
   );
 };

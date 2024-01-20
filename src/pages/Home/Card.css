@@ -1,11 +1,11 @@
 .card {
   display: flex;
   width: 50%;
-  background: #d1cfcf;
+  background: #e1e0e0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 20px; /* Space between cards */
+  margin-bottom: 50px; /* Space between cards */
 }
 
 .card-image-container {

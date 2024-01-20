@@ -16,14 +16,16 @@ const LogIn = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     if (!credential || !password) {
-      setError("Please enter both username/email and password");
+      setError("Please enter both username and password");
       return;
     }
     try {
       await dispatch(login({ username: credential, password })).unwrap();
-      navigate("/"); // Redirect to home page upon successful login
+      navigate("/");
     } catch (rejectedValueOrSerializedError) {
-      setError(rejectedValueOrSerializedError.message || "Login failed");
+      setError(
+        "Login attempt unsuccessful. Please check your credentials and try again."
+      );
     }
   };
 
@@ -37,7 +39,7 @@ const LogIn = () => {
           <div className="input-group">
             <input
               type="text"
-              placeholder="Username or Email"
+              placeholder="Username"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
             />

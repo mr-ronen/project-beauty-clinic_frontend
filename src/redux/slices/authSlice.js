@@ -21,10 +21,9 @@ export const register = createAsyncThunk(
         email,
         password,
         fullName,
-        role: "client", // Assuming 'role' is required and defaulting to 'client'
+        role: "Client",
         profilePhoto: profilePhoto || null,
       });
-      // Adjust this according to the actual response from your API
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -34,13 +33,12 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
   "auth/login",
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ username, password }, { rejectWithValue }) => {
     try {
       const response = await apiClient.post("/api/Authentication/login", {
-        email,
+        username, // Include username
         password,
       });
-      // Adjust this according to the actual response from your API
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -68,7 +66,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.user = action.payload.user;
-        localStorage.setItem("token", action.payload.token); // Assuming the token is part of the response
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -82,7 +79,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.user = action.payload.user;
-        localStorage.setItem("token", action.payload.token); // Assuming the token is part of the response
+        localStorage.setItem("token", action.payload.token);
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;

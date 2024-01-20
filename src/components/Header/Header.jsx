@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
-import Carticon from "../../assets/images/L-icon.png"; 
+import Carticon from "../../assets/images/L-icon.png";
 import logo from "../../assets/images/logo.png";
 import Navigation from "../Navigation/Navigation";
-
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,9 +34,7 @@ const Header = () => {
           <li>
             <a href="/shop">חנות</a>
           </li>
-          <li>
-            <a href="/treatments">טיפולים</a>
-          </li>
+
           <li>
             <a href="/courses">קורסים</a>
             <ul className="dropdown">
@@ -60,11 +57,11 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-        <a href="/Cart">
-          <img src={Carticon} alt="Cart" className="cart-icon" />
-        </a>
-        <Navigation />
-      </header>
+      <a href="/Cart">
+        <img src={Carticon} alt="Cart" className="cart-icon" />
+      </a>
+      <Navigation />
+    </header>
   );
 };
 

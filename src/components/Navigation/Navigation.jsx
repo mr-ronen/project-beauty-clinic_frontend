@@ -28,9 +28,6 @@ const Navigation = () => {
       <div ref={navRef} className={`nav ${isOpen ? "open" : "closed"}`}>
         <ul>
           <li>
-            <a href="/treatments">טיפולים</a>
-          </li>
-          <li>
             <a href="/courses">קורסים </a>
           </li>
           <li>

@@ -18,7 +18,7 @@ const UserRegistration = () => {
   const validateForm = () => {
     if (!username) return "Please enter a username.";
     if (!/^[a-zA-Z0-9_]+$/.test(username))
-      return "Username must be alphanumeric and can include underscores.";
+      return "Your username should only contain letters, numbers, and underscores.";
     if (!fullName) return "Please enter your full name.";
     if (!/^[a-zA-Z ]+$/.test(fullName))
       return "Full name must contain only letters and spaces.";
@@ -27,7 +27,7 @@ const UserRegistration = () => {
       return "Please enter a valid email address.";
     if (!password) return "Please enter a password.";
     if (password.length < 6)
-      return "Password must be at least 6 characters long.";
+      return "Password must be at least 6 characters long with at least 1 number.";
     if (!/\d/.test(password))
       return "Password must contain at least one digit.";
     return "";
@@ -44,7 +44,7 @@ const UserRegistration = () => {
       await dispatch(
         register({ username, email, password, fullName })
       ).unwrap();
-      navigate("/login"); // Redirect to login page upon successful registration
+      navigate("/login");
     } catch (rejectedValueOrSerializedError) {
       setValidationMessage(
         rejectedValueOrSerializedError.message || "Registration failed"
