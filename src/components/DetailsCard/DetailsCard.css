@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto; /* Center the card */
+  max-width: 1000px; /* Set a max-width */
+}
+
+.card-body {
+  padding: 10px;
+  flex-grow: 1;
+  direction: rtl;
+  min-width: 150px;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: center; /* Center items on small screens */
+  }
+
+  .card-body {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .card-image {
+    width: 80%; /* Smaller image on small screens */
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+    padding: 10px; /* Add some padding on very small screens */
+  }
+}

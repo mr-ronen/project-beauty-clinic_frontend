@@ -1,3 +1,16 @@
+.heroc {
+  max-width: auto;
+  margin: auto;
+  overflow: hidden;
+  height: 300px;
+  background-image: url("../../assets/images/store.3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

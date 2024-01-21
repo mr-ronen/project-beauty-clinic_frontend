@@ -37,23 +37,6 @@ const Header = () => {
 
           <li>
             <a href="/courses">קורסים</a>
-            <ul className="dropdown">
-              <li>
-                <a href="/courses/brows">קורס גבות</a>
-              </li>
-              <li>
-                <a href="/courses/lips">קורס שפתיים</a>
-              </li>
-              <li>
-                <a href="/courses/eyeliner">קורס אייליינר</a>
-              </li>
-              <li>
-                <a href="/courses/lash-lift">קורס הרמת ריסים</a>
-              </li>
-              <li>
-                <a href="/courses/refresher-courses">השתלמויות</a>
-              </li>
-            </ul>
           </li>
         </ul>
       </nav>
@@ -66,3 +49,8 @@ const Header = () => {
 };
 
 export default Header;
+
+// <ul className="dropdown"><li><a href="/courses/brows">קורס גבות</a></li><li> this is for later 
+//<a href="/courses/lips">קורס שפתיים</a></li><li><a href="/courses/eyeliner">קורס אייליינר</a>
+//</li><li><a href="/courses/lash-lift">קורס הרמת ריסים</a></li>
+//<li><a href="/courses/refresher-courses">השתלמויות</a></li></ul>

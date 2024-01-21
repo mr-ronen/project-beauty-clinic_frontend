@@ -33,6 +33,7 @@ const Shop = () => {
   return (
     <>
       <Header />
+      <div className="heroc">{}</div>
       <div className="shop-container">
         <h2>Shop</h2>
         <div className="product-grid">

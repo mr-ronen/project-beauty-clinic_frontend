@@ -2,12 +2,39 @@
   max-width: auto;
   margin: auto;
   overflow: hidden;
-  height: 400px;
-  background-image: url("../../assets/images/rita.png"); 
+  height: 300px;
+  background-image: url("../../assets/images/rita.png");
   background-size: cover; /* Or 'cover' to fill the height; 'contain' will ensure the whole image is visible */
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+@media (max-width: 1524px) {
+  .cards-container {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
 }
