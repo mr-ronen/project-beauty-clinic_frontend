@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
-  // other states like loading, error...
 };
 
 const productSlice = createSlice({
@@ -12,7 +11,6 @@ const productSlice = createSlice({
     setProducts: (state, action) => {
       state.products = action.payload;
     },
-    // other reducers...
   },
 });
 
