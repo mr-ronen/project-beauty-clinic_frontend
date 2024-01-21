@@ -4,11 +4,11 @@
 .hero {
   max-width: 1024px;
   margin: auto;
-  overflow: hidden; /* Prevents horizontal scroll */
-  height: 600px; /* Adjust the height as needed */
-  background-image: url("../../assets/images/mainPagePhoto.png"); /* Path to your smaller photo */
+  overflow: hidden; 
+  height: 600px; 
+  background-image: url("../../assets/images/mainPagePhoto.png"); 
   background-size: contain; /* Or 'cover' to fill the height; 'contain' will ensure the whole image is visible */
-  background-position: center; /* Center the background image */
+  background-position: center; 
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
 
 /* Content styles */
 .content {
-  background: white; /* Background color for content */
+  background: white; 
   display: flex;
     flex-direction: column;
 

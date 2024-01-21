@@ -13,33 +13,33 @@
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.75); /* Slightly transparent */
+  background: rgba(255, 255, 255, 0.75); 
 }
 
 .logo {
   height: auto;
-  width: 10vw; /* Use viewport width for scalability */
-  max-width: 150px; /* Set a max width to prevent it from becoming too large */
+  width: 10vw; 
+  max-width: 150px; 
 }
 
 .cart-icon {
-  height: 3.5vw; /* Use viewport width for scalability */
-  max-height: 40px; /* Set a max height to prevent it from becoming too large */
+  height: 3.5vw; 
+  max-height: 40px; 
   margin-left: auto;
-  margin-right: 4.5vw; /* Use viewport width for right margin */
+  margin-right: 4.5vw; 
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2vw; /* Use viewport width for gap between menu items */
-  margin-left: 5vw; /* Use viewport width for left margin */
+  gap: 2vw; 
+  margin-left: 5vw; 
 }
 
 nav a {
   text-decoration: none;
   color: black;
-  font-size: 1.2vw; /*  Use viewport width for font size */
+  font-size: 1.2vw; 
   font-weight: 300;
 }
 
@@ -128,6 +128,6 @@ nav li:hover .dropdown {
 
   nav a {
     font-size: 3.5vw;
-    color: black; /* Default color */
+    color: black; 
   }
 }

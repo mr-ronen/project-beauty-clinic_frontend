@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../redux/slices/productSlice";
-// Assume you have a service to fetch products
-import productService from "../../services/productService";
+import productService from "../../services/productService";//demo
 
 const Cart = () => {
   const dispatch = useDispatch();

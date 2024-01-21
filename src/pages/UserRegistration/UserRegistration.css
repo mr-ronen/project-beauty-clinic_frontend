@@ -9,59 +9,59 @@
 .registration-card {
   padding: 20px;
   text-align: center;
-  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1); /* Smoother shadow */
-  border-radius: 10px; /* Rounder corners */
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   width: 100%;
   max-width: 400px;
-  background-color: #ffffff; /* Brighter card for contrast */
-  margin: 20px; /* Space around the card */
+  background-color: #ffffff;
+  margin: 20px;
 }
 
 .registration-card h2 {
   margin-bottom: 20px;
-  color: #333; /* Darker color for headline */
-  font-family: "Open Sans", sans-serif; /* Modern font */
+  color: #333;
+  font-family: "Open Sans", sans-serif;
 }
 
 .invitation {
-  font-size: 18px; /* Larger text */
-  margin-bottom: 30px; /* More space */
-  color: #555; /* Subtle color for text */
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
 }
 
 .input-group input {
   width: 85%;
   padding: 15px;
-  border: 2px solid #ddd; /* Thicker border */
-  border-radius: 5px; /* Slightly rounder edges */
-  font-size: 16px; /* Larger font size */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .error-message {
-  color: #e74c3c; /* Standard error color */
-  margin-top: -15px; /* Align with the input fields */
-  margin-bottom: 20px; /* Space before the button */
+  color: #e74c3c;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 .submit-button {
-  width: 85%; /* Match input field width */
-  padding: 15px 20px; /* Larger padding */
+  width: 85%;
+  padding: 15px 20px;
   border: none;
   background-color: #85c8a3;
   color: white;
-  border-radius: 5px; /* Consistent with input fields */
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 18px; /* Larger font size */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  font-size: 18px;
+  transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-  background-color: #379683; /* Darker shade on hover */
+  background-color: #379683;
 }
 
 .login-link {
   text-align: center;
-  font-size: 14px; /* Smaller font size for subtext */
+  font-size: 14px;
   margin-top: 20px;
   color: #6c757d;
   cursor: pointer;
