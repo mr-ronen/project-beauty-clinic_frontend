@@ -6,6 +6,7 @@ import productService from "../../services/productService";
 import Footer from "../../components/Footer/Footer";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./Shop.css";
+import { fetchProducts } from "../../redux/slices/productSlice";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -14,17 +15,7 @@ const Shop = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    productService
-      .getProducts() 
-      .then((data) => {
-        dispatch(setProducts(data));
-      })
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setError(err.message);
-      })
-      .finally(() => setLoading(false));
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   if (loading) return <div>Loading...</div>;
@@ -39,7 +30,7 @@ const Shop = () => {
         <div className="product-grid">
           {products.length ? (
             products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.productId} product={product} />
             ))
           ) : (
             <p>No products available.</p>
