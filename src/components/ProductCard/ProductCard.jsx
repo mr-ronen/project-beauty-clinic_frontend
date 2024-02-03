@@ -1,10 +1,11 @@
+import "./ProductCard.css";
 function ProductCard({ product }) {
   return (
     <div className="product-card">
       <img
+        className="product-image"
         src={product.imageUrl}
         alt={product.name}
-        className="product-image"
       />
       <div className="product-info">
         <h3>{product.name}</h3>

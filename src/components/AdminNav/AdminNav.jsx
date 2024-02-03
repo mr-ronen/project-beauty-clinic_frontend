@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Navigation.css";
+import "./AdminNav.css";
 import Menubar from "../../assets/images/Menu.png";
 
-const Navigation = () => {
+const AdminNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
 
@@ -36,11 +36,16 @@ const Navigation = () => {
           <li>
             <a href="/About">צור קשר</a>
           </li>
-         
+          <h2>ניהול</h2>
+          <li>
+            <a href="/UsersManagement"> משתמשים </a>
+          </li>
+          <li>
+            <a href="/ShopManagement">עריכת חנות </a>
+          </li>
         </ul>
       </div>
     </>
   );
 };
-
-export default Navigation;
+export default AdminNav;

@@ -10,15 +10,18 @@ import CourseDetails from "./pages/CourseDetails/CourseDetails";
 import CheckOut from "./pages/CheckOut/CheckOut";
 import LogIn from "./pages/LogIn/LogIn";
 import Treatments from "./pages/Treatments/Treatments";
-
+import Administration from "./pages/Administration/Administration";
+import ShopManagement from "./pages/ShopManagement/ShopManagement";
+import UsersManagement from "./pages/UsersManagement/UsersManagement";
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/UserRegistration" element={<UserRegistration />} />
           <Route path="/Home" element={<Home />} />
+          <Route path="/UserRegistration" element={<UserRegistration />} />
+          <Route path="/LogIn" element={<LogIn />} />
           <Route path="/Shop" element={<Shop />} />
           <Route path="/About" element={<About />} />
           <Route path="/Treatments" element={<Treatments />} />
@@ -26,7 +29,9 @@ function App() {
           <Route path="/CourseDetails" element={<CourseDetails />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/CheckOut" element={<CheckOut />} />
-          <Route path="/LogIn" element={<LogIn />} />
+          <Route path="/Administration" element={<Administration />} />
+          <Route path="/ShopManagement" element={<ShopManagement />} />
+          <Route path="/UsersManagement" element={<UsersManagement />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

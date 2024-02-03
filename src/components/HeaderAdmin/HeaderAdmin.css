@@ -1,0 +1,133 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  transition: background-color 0.3s;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.logo {
+  height: auto;
+  width: 10vw;
+  max-width: 150px;
+}
+
+.cart-icon {
+  height: 3.5vw;
+  max-height: 40px;
+  margin-left: auto;
+  margin-right: 4.5vw;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2vw;
+  margin-left: 5vw;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2vw;
+  font-weight: 300;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+nav li:hover .dropdown {
+  display: block;
+}
+
+/* For laptop or small-size screen */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .logo {
+    width: 12vw;
+  }
+
+  .cart-icon {
+    height: 4vw;
+  }
+
+  nav ul {
+    gap: 1.5vw;
+  }
+
+  nav a {
+    font-size: 2vw;
+  }
+}
+
+/* For tablets or iPad */
+@media (max-width: 768px) {
+  header nav {
+    display: none; /*Hide the default nav*/
+  }
+  .logo {
+    width: 15vw;
+  }
+
+  .cart-icon {
+    height: 5vw;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2vw;
+    padding: 0;
+    align-items: center;
+  }
+
+  nav a {
+    font-size: 2vw;
+  }
+
+  .dropdown {
+    position: static; /* Dropdowns will flow in document layout */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  header nav {
+    display: none;
+  }
+  .header {
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 25vw;
+  }
+
+  .cart-icon {
+    height: 7vw;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5vw;
+  }
+
+  nav a {
+    font-size: 3.5vw;
+    color: black;
+  }
+}

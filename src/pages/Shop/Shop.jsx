@@ -26,11 +26,15 @@ const Shop = () => {
       <Header />
       <div className="heroc">{}</div>
       <div className="shop-container">
-        <h2>Shop</h2>
+        <h2></h2>
         <div className="product-grid">
           {products.length ? (
             products.map((product) => (
-              <ProductCard key={product.productId} product={product} />
+              <ProductCard
+                key={product.productId}
+                product={product}
+               
+              />
             ))
           ) : (
             <p>No products available.</p>
