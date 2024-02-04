@@ -31,6 +31,7 @@ function App() {
           <Route path="/CheckOut" element={<CheckOut />} />
           <Route path="/Administration" element={<Administration />} />
           <Route path="/ShopManagement" element={<ShopManagement />} />
+          <Route path="/ShopManagement/:id" element={<ShopManagement />} />
           <Route path="/UsersManagement" element={<UsersManagement />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
