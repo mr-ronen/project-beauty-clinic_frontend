@@ -9,7 +9,7 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
   const dispatch = useDispatch();
 
   const initialValues = isEditing
-    ? { ...product }
+    ? { id: product.id, ...product }
     : {
         name: "",
         price: "",
@@ -33,15 +33,19 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    if (onUpdate) {
-      onUpdate(values); // Use the onUpdate function passed as prop
-      setSubmitting(false);
+    if (isEditing) {
+      dispatch(updateProduct(values));
+    } else {
+      dispatch(addProduct(values));
     }
+    setSubmitting(false);
   };
 
+  
   return (
     <Formik
       initialValues={initialValues}
+      
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
         onUpdate(values); // Use onUpdate prop to update the product
