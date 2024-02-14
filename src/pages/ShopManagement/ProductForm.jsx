@@ -34,7 +34,8 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     if (isEditing) {
-      dispatch(updateProduct(values));
+      const { id, ...productData } = values;
+      dispatch(updateProduct({ id, productData }));
     } else {
       dispatch(addProduct(values));
     }

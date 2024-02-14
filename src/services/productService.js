@@ -21,16 +21,10 @@ const addProduct = async (productData) => {
 const updateProduct = async (productId, updatedData) => {
   const response = await apiClient.put(
     `/api/Product/${productId}`,
-    updatedData,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
+    updatedData
   );
   return response.data;
 };
-
 
 // Delete a product
 const deleteProduct = async (productId) => {
