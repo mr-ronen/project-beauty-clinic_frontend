@@ -19,15 +19,29 @@ const addProduct = async (productData) => {
 
 // Update a product
 const updateProduct = async (productId, updatedData) => {
-  const response = await apiClient.put(`/api/Product/${productId}`, updatedData);
+  const response = await apiClient.put(
+    `/api/Product/${productId}`,
+    updatedData,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   return response.data;
 };
+
 
 // Delete a product
 const deleteProduct = async (productId) => {
   const response = await apiClient.delete(`/api/Product/${productId}`);
   return response.data;
 };
-const productService = { getProducts, addProduct, updateProduct, deleteProduct };
+const productService = {
+  getProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+};
 
 export default productService;

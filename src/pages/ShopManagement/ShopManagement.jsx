@@ -8,7 +8,6 @@ import {
 import "./ShopManagement.css";
 import ProductForm from "./ProductForm";
 
-
 const ShopManagement = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.product);
@@ -22,8 +21,6 @@ const ShopManagement = () => {
     discountPrice: "",
   });
 
-
-  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -37,7 +34,8 @@ const ShopManagement = () => {
     dispatch(
       updateProduct({
         ...productData,
-        id: currentProduct.productId, // Ensure you pass the correct product ID
+        id: currentProduct.productId, 
+        productData,
       })
     );
     setEditMode(false); // Exit edit mode after update
@@ -59,7 +57,6 @@ const ShopManagement = () => {
     }
   };
 
- 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   return (
