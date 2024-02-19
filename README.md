@@ -37,6 +37,10 @@ Registration: Navigate to [your website URL]/UserRegistration for new user regis
 Login: Existing users can log in at [your website URL]/logIn, or http://localhost:3000/logIn for local development.
 Note: Replace [your website URL] with the actual URL where your website is hosted for production.
 
+
+ To try the administration crud functions go to the http://localhost:3000/Administration (Administration page) and there press on ("עריכת חנות ") . 
+ or go straight to http://localhost:3000/ShopManagement the page where the crud opirations take place in . 
+ in the current state of the project being logged in as admin is not needed for because of testing reasons.
 ### Learn More
 
 React documentation.
