@@ -12,6 +12,7 @@ const ShopManagement = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.product);
   const [editMode, setEditMode] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({
     productId: null,
     name: "",
@@ -23,7 +24,7 @@ const ShopManagement = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [dispatch, products]);
 
   const handleEditClick = (product) => {
     setCurrentProduct(product);
@@ -34,13 +35,17 @@ const ShopManagement = () => {
     dispatch(
       updateProduct({
         ...productData,
-        id: currentProduct.productId, 
+        id: currentProduct.productId,
         productData,
       })
     );
     setEditMode(false); // Exit edit mode after update
   };
 
+  // Function to toggle the form visibility
+  const toggleAddForm = () => {
+    setShowAddForm(!showAddForm);
+  };
   const handleDelete = (productId) => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete this product?"
@@ -63,6 +68,16 @@ const ShopManagement = () => {
     <>
       <div className="shop-management">
         <h1 className="title">Shop Management</h1>
+        <button onClick={toggleAddForm} className="add-product-btn">
+          Add Product
+        </button>
+        {showAddForm && (
+          <ProductForm
+            product={{}} // Pass an empty object for a new product
+            isEditing={false}
+            onUpdate={() => {}} // No need to pass an update function for adding
+          />
+        )}
         {editMode && (
           <ProductForm
             product={currentProduct}
@@ -82,19 +97,19 @@ const ShopManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.productId}>
+            {products.map((product, index) => (
+              <tr key={index}>
                 <td>
                   <img
-                    src={product.imageUrl}
-                    alt={product.name}
+                    src={product?.imageUrl}
+                    alt={product?.name}
                     className="product-table img"
                   />
                 </td>
-                <td>{product.name}</td>
-                <td>${product.price}</td>
-                <td>{product.stockQuantity}</td>
-                <td>${product.discountPrice}</td>
+                <td>{product?.name}</td>
+                <td>${product?.price}</td>
+                <td>{product?.stockQuantity}</td>
+                <td>${product?.discountPrice}</td>
                 <td>
                   <button
                     onClick={() => handleEditClick(product)}
