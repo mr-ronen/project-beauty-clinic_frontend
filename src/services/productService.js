@@ -31,7 +31,14 @@ const deleteProduct = async (productId) => {
   const response = await apiClient.delete(`/api/Product/${productId}`);
   return response.data;
 };
+
+const fetchProductById = async (productId) => {
+  const response = await apiClient.get(`/api/Product/${productId}`);
+  return response.data;
+};
+
 const productService = {
+  fetchProductById,
   getProducts,
   addProduct,
   updateProduct,

@@ -23,6 +23,19 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+// Fetch a single product by id
+export const fetchProductById = createAsyncThunk(
+  "products/fetchProductById",
+  async (productId, { rejectWithValue }) => {
+    try {
+      const response = await productService.fetchProductById(productId);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
 // adding a product
 export const addProduct = createAsyncThunk(
   "products/addProduct",
@@ -61,6 +74,9 @@ export const deleteProduct = createAsyncThunk(
     }
   }
 );
+
+
+
 // Create the slice
 const productSlice = createSlice({
   name: "product",
@@ -70,6 +86,7 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    
       // Handle addProduct action
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
@@ -111,7 +128,7 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
+      //fetchProducts action
       .addCase(fetchProducts.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -121,6 +138,20 @@ const productSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      //fetchProductById action
+      .addCase(fetchProductById.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.currentProduct = action.payload;
+      })
+    
+      .addCase(fetchProductById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

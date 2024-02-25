@@ -13,6 +13,7 @@ import Treatments from "./pages/Treatments/Treatments";
 import Administration from "./pages/Administration/Administration";
 import ShopManagement from "./pages/ShopManagement/ShopManagement";
 import UsersManagement from "./pages/UsersManagement/UsersManagement";
+import ProductPage from "./pages/ProductPage/ProductPage";
 function App() {
   return (
     <div>
@@ -33,6 +34,7 @@ function App() {
           <Route path="/ShopManagement" element={<ShopManagement />} />
           <Route path="/ShopManagement/:id" element={<ShopManagement />} />
           <Route path="/UsersManagement" element={<UsersManagement />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

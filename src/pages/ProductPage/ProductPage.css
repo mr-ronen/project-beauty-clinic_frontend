@@ -1,0 +1,13 @@
+.product-page {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-page img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
