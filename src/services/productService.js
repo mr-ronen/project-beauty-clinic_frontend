@@ -36,6 +36,16 @@ const fetchProductById = async (productId) => {
   const response = await apiClient.get(`/api/Product/${productId}`);
   return response.data;
 };
+const searchProducts = async (query) => {
+  try {
+    const response = await apiClient.get(`/api/Product/search?query=${query}`);
+    console.log("Search Results:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error searching products:", error);
+    throw error;
+  }
+};
 
 const productService = {
   fetchProductById,
@@ -43,6 +53,7 @@ const productService = {
   addProduct,
   updateProduct,
   deleteProduct,
+  searchProducts,
 };
 
 export default productService;

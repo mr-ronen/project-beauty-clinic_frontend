@@ -75,7 +75,18 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
-
+// search products
+export const searchProducts = createAsyncThunk(
+  "products/searchProducts",
+  async (query, { rejectWithValue }) => {
+    try {
+      const data = await productService.searchProducts(query);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
 
 // Create the slice
 const productSlice = createSlice({
@@ -86,7 +97,19 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    
+      // Handle searchProducts action 
+      .addCase(searchProducts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(searchProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.products = action.payload; // Overwrites the existing products list with search results
+      })
+      .addCase(searchProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       // Handle addProduct action
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);

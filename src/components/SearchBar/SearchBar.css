@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ensures consistent spacing between elements */
+    background-color: #f9f9f9; /* Light background to distinguish the search area */
+    padding: 15px;
+    border-radius: 25px; /* Rounded edges for a modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .search-input {
+    flex: 1; /* Allows the input to fill the available space */
+    padding: 10px 20px;
+    border: 2px solid #ddd; /* Subtle border */
+    border-radius: 20px; /* Rounded corners for the input field */
+    outline: none; /* Removes the default focus outline */
+    transition: border-color 0.3s; /* Smooth transition for focus effect */
+  }
+  
+  .search-input:focus {
+    border-color: #007bff; /* Highlight color when focused */
+  }
+  
+  .search-button, .reset-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded corners for buttons */
+    cursor: pointer;
+    background-color: #007bff; /* Replace with your theme color */
+    color: white; /* Text color for buttons */
+    font-weight: bold;
+    transition: background-color 0.3s; /* Smooth background transition */
+  }
+  
+  .search-button:hover, .reset-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  .reset-button {
+    background-color: #6c757d; /* A different color for the reset button for distinction */
+  }
+  
+  .reset-button:hover {
+    background-color: #545b62; /* Darker shade for hover effect on reset button */
+  }
