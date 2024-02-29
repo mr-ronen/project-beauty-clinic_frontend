@@ -1,13 +1,102 @@
 .product-page {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the content vertically */
+  min-height: 100vh; /* Make it fill the whole viewport height */
+  padding: 20px; /* Add some padding around */
+}
+
+.product-container {
+  display: flex;
+  flex-direction: row; /* Align image and info side by side */
+  align-items: center; /* Center items vertically */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Take full width */
+  max-width: 1200px; /* Maximum width */
+  margin: auto; /* Center it horizontally */
+}
+
+.product-image-container {
+  width: 50%; /* Image takes up half the width */
+}
+
+.product-image {
+  width: 100%; /* Image takes the full width of its container */
+  height: auto;
+  border-radius: 4px;
+}
+
+.product-info-a {
+  width: 50%; /* Info area takes the other half */
+  padding: 20px;
+}
+
+.product-name {
+  font-size: 2.5rem; /* Slightly bigger font for the name */
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 1.2rem; /* Slightly bigger font for the description */
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.product-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.product-discount-price {
+  font-size: 1.5rem;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.product-stock {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #008cba;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #005f73;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
   }
-  
-  .product-page img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+
+  .product-image-container,
+  .product-info-a {
+    width: 100%; /* Both take full width on small screens */
   }
+
+  .product-pricing {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

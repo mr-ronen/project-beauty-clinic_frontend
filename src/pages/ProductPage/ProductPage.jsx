@@ -1,40 +1,56 @@
-
-import React, { useEffect , useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductById } from '../../redux/slices/productSlice';
+import { fetchProducts } from '../../redux/slices/productSlice';
 import './ProductPage.css';
+import Header from "../../components/Header/Header";
+
 
 const ProductPage = () => {
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+  const { products, loading, error } = useSelector((state) => state.product);
+  const product = products.find((p) => p.productId === Number(productId));
 
-    const { productId } = useParams();
-    const dispatch = useDispatch();
-    const { currentProduct, loading, error } = useSelector((state) => state.product);
-    const [curProduct, setCurProduct] = useState(null);
+  useEffect(() => {
+    if (products.length === 0) {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, products.length]);
 
-    useEffect(() => {
-     let res = dispatch(fetchProductById(productId));
-    }, [dispatch, productId]);
-  
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
-
-    return (
-      <div className="product-page">
-        {currentProduct && (
-          <>
-            <h1>{currentProduct.name}</h1>
-            <img src={currentProduct.imageUrl} alt={currentProduct.name} />
-            <p>{currentProduct.description}</p>
-            <p>Price: ${currentProduct.price}</p>
-            {currentProduct.discountPrice && <p>Discount Price: ${currentProduct.discountPrice}</p>}
-            <p>In Stock: {currentProduct.stockQuantity}</p>
-            
-          </>
-        )}
-      </div>
-    );
+  const handleAddToCart = () => {
+    // Dispatch an action to add the product to the cart
+    console.log('Add to cart not implemented yet'); // Placeholder
   };
-  
-  
-  export default ProductPage;
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
+  if (!product) return <div className="not-found">Product not found</div>;
+
+  return (
+    <div className="product-page">
+      <Header />
+      <div className="product-container">
+        <div className="product-image-container">
+          <img src={product.imageUrl} alt={product.name} className="product-image" />
+        </div>
+        <div className="product-info-a">
+          <h1 className="product-name">{product.name}</h1>
+          <p className="product-description">{product.description}</p>
+          <div className="product-pricing">
+            <p className="product-price">Price: ${product.price.toFixed(2)}</p>
+            {product.discountPrice && (
+              <p className="product-discount-price">Sale: ${product.discountPrice.toFixed(2)}</p>
+            )}
+          </div>
+          <p className="product-stock">In Stock: {product.stockQuantity}</p>
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductPage;

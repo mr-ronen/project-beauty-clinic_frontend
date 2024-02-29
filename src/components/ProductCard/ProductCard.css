@@ -5,7 +5,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 200px;
-  height: 350px;
+  height: 370px;
   padding: 10px;
   box-sizing: border-box; /* Include padding and border in element's total width and height */
   display: flex; /* Use flexbox */
