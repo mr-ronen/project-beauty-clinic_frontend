@@ -1,0 +1,30 @@
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .cart-page-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .cart-additional {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .continue-shopping-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .continue-shopping-btn:hover {
+    background-color: #0056b3;
+  }
