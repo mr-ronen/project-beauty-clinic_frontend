@@ -14,15 +14,25 @@ export const CartComponent = () => {
   const { items, status, error } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
   const userId = user?.userId;
-  
+
   useEffect(() => {
     if (userId) {
       dispatch(fetchCartItems(userId));
     }
   }, [userId, dispatch]);
 
+  // function to calculate total cost
+  const calculateTotalCost = () => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  // function to calculate total items
+  const totalItems = () => {
+    return items.reduce((total, item) => total + item.quantity, 0);
+  };
+
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="cart-container">Loading...</div>;
   }
 
   if (!user) {
@@ -30,18 +40,14 @@ export const CartComponent = () => {
       <div className="cart-container">
         <p>
           Only logged-in users can access the cart. Please
-          <Link to="/LogIn"> log in</Link> to view your cart.
+          <Link to="/login"> log in</Link> to view your cart.
         </p>
       </div>
     );
   }
 
   if (error) {
-    return (
-      <div className="cart-container">
-        <div>Error: {error}</div>
-      </div>
-    );
+    return <div className="cart-container">Error: {error}</div>;
   }
 
   const handleAddItem = (productId, quantity) => {
@@ -62,36 +68,66 @@ export const CartComponent = () => {
       {items.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <div>
-          {items.map((item) => (
-            <div className="cart-item" key={item.cartItemId}>
-              <p>Product ID: {item.productId}</p>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: {item.price}</p>
-              <button
-                onClick={() =>
-                  handleUpdateQuantity(item.cartItemId, item.quantity + 1)
-                }
-              >
-                +
-              </button>
-              <button
-                onClick={
-                  () =>
-                    handleUpdateQuantity(
-                      item.cartItemId,
-                      Math.max(item.quantity - 1, 0)
-                    ) // Ensures quantity does not go below 0
-                }
-              >
-                -
-              </button>
-              <button onClick={() => handleRemoveItem(item.cartItemId)}>
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
+        <>
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr key={item.cartItemId}>
+                  {/* Assuming you have the product details including name, category, etc. */}
+                  <td>{item.name}</td>
+                  <td>${item.price}</td>
+                  <td>{item.category}</td>
+                  <td>
+                    <img
+                      src={item.imageUrl}
+                      alt={item.name}
+                      style={{ width: "50px", height: "50px" }}
+                    />
+                  </td>
+                  <td>
+                    <button
+                      onClick={() =>
+                        handleUpdateQuantity(item.cartItemId, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                    {item.quantity}
+                    <button
+                      onClick={() =>
+                        handleUpdateQuantity(
+                          item.cartItemId,
+                          Math.max(item.quantity - 1, 0)
+                        )
+                      }
+                    >
+                      -
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={() => handleRemoveItem(item.cartItemId)}>
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="cart-summary">
+            <p>Total Items: {totalItems()}</p>
+            <p>Total Cost: ${calculateTotalCost()}</p>
+          </div>
+        </>
       )}
     </div>
   );

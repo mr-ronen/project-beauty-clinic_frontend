@@ -1,31 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { useSelector, useDispatch } from "react-redux";
-import { setProducts } from "../../redux/slices/productSlice";
-import productService from "../../services/productService"; //demo  
 import { CartComponent } from "../../components/CartComponent/CartComponent";
 import "./Cart.css";
-
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
     <div className="cart-page">
-      
-      <Header /> 
+      <Header />
       <h1 className="cart-page-title">Shopping Cart</h1>
       <CartComponent />
-
-      {/* additional elements  summary box, promotions, or continue shopping button */}
-
       <div className="cart-additional">
-        <button className="continue-shopping-btn">Continue Shopping</button>
-        
-        {/* If you have a summary or checkout component, it can be placed here */}
-        {/* <SummaryBox /> */}
-        {/* <CheckoutButton /> */}
+        {/* This button could link back to the products page or wherever you see fit */}
+        <Link to="/shop" className="continue-shopping-btn">
+          Continue Shopping
+        </Link>
+        {/* Implement any additional elements here, such as a summary box, promotions, or a checkout button */}
       </div>
-
       <Footer />
     </div>
   );

@@ -7,6 +7,7 @@ import cardphoto from "../../assets/images/homecardphoto.webp";
 import cardphoto2 from "../../assets/images/homecardphoto2.webp";
 import cardphoto3 from "../../assets/images/homecardphoto3.webp";
 import OpCard from "./CardOp";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -35,6 +36,7 @@ const Home = () => {
           description="אני מזמינה אותך אלי לקליניקה לקבל מראה טבעי, מודרני ועדין המותאם במיוחד בשבילך."
           imageUrl={cardphoto}
           buttonText="לפרטים נוספים"
+          
         />
         <OpCard
           title="קורסים"
