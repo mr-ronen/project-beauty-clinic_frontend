@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import {useSelector, useDispatch } from "react-redux";
 import { login } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import "./LogIn.css";
@@ -12,7 +12,13 @@ const LogIn = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
 
+  useEffect(() => {
+    // This will log the user object every time it changes
+    console.log("Logged in user:", user);
+  }, [user]);
+  
   const handleLogin = async (event) => {
     event.preventDefault();
     if (!credential || !password) {

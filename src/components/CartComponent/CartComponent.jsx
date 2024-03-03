@@ -13,8 +13,8 @@ export const CartComponent = () => {
   const dispatch = useDispatch();
   const { items, status, error } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
-  const userId = user?.id;
-
+  const userId = user?.userId;
+  
   useEffect(() => {
     if (userId) {
       dispatch(fetchCartItems(userId));

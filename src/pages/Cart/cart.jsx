@@ -7,6 +7,7 @@ import productService from "../../services/productService"; //demo
 import { CartComponent } from "../../components/CartComponent/CartComponent";
 import "./Cart.css";
 
+
 const Cart = () => {
   return (
     <div className="cart-page">

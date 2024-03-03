@@ -1,51 +1,69 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import apiClient from "../../services/apiClient";
 
 // Async thunk for fetching cart items
-export const fetchCartItems = createAsyncThunk('cart/fetchCartItems', async (userId, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`/api/cart/${userId}`);
-    return response.data;
-  } catch (err) {
-    return rejectWithValue(err.response.data);
+export const fetchCartItems = createAsyncThunk(
+  "cart/fetchCartItems",
+  async (userId, { rejectWithValue }) => {
+    try {
+      const response = await apiClient.get(`/api/cart/${userId}`);
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
-});
+);
 
 // Async thunk for adding an item to the cart
-export const addItemToCart = createAsyncThunk('cart/addItemToCart', async ({ userId, productId, quantity }, { rejectWithValue }) => {
-  try {
-    const response = await axios.post(`/api/cart/add`, { userId, productId, quantity });
-    return response.data; // Assuming the backend returns the updated cart items
-  } catch (err) {
-    return rejectWithValue(err.response.data);
+export const addItemToCart = createAsyncThunk(
+  "cart/addItemToCart",
+  async ({ userId, productId, quantity }, { rejectWithValue }) => {
+    try {
+      const response = await apiClient.post(`/api/cart/add`, {
+        userId,
+        productId,
+        quantity,
+      });
+      return response.data; // Assuming the backend returns the updated cart items
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
-});
+);
 
 // Async thunk for removing an item from the cart
-export const removeItemFromCart = createAsyncThunk('cart/removeItemFromCart', async (cartItemId, { rejectWithValue }) => {
-  try {
-    const response = await axios.delete(`/api/cart/remove/${cartItemId}`);
-    return response.data; // Assuming the backend returns the updated cart items
-  } catch (err) {
-    return rejectWithValue(err.response.data);
+export const removeItemFromCart = createAsyncThunk(
+  "cart/removeItemFromCart",
+  async (cartItemId, { rejectWithValue }) => {
+    try {
+      const response = await apiClient.delete(`/api/cart/remove/${cartItemId}`);
+      return response.data; // Assuming the backend returns the updated cart items
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
-});
+);
 
 // Async thunk for updating the quantity of a cart item
-export const updateCartItemQuantity = createAsyncThunk('cart/updateCartItemQuantity', async ({ cartItemId, quantity }, { rejectWithValue }) => {
-  try {
-    const response = await axios.put(`/api/cart/update/${cartItemId}`, { quantity });
-    return response.data; // Assuming the backend returns the updated cart items
-  } catch (err) {
-    return rejectWithValue(err.response.data);
+export const updateCartItemQuantity = createAsyncThunk(
+  "cart/updateCartItemQuantity",
+  async ({ cartItemId, quantity }, { rejectWithValue }) => {
+    try {
+      const response = await apiClient.put(`/api/cart/update/${cartItemId}`, {
+        quantity,
+      });
+      return response.data; // Assuming the backend returns the updated cart items
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
-});
+);
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState: {
     items: [],
-    status: 'idle',
+    status: "idle",
     error: null,
   },
   reducers: {
@@ -55,14 +73,14 @@ const cartSlice = createSlice({
     builder
       // Handle fetchCartItems
       .addCase(fetchCartItems.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchCartItems.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.items = action.payload;
       })
       .addCase(fetchCartItems.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.payload;
       })
       // Handle addItemToCart

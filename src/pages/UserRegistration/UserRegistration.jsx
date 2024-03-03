@@ -61,7 +61,7 @@ const UserRegistration = () => {
           Register to benefit from our shop's exclusive deals!
         </p>
         <form onSubmit={handleSubmit} className="registration-form">
-          <div className="input-group">
+          <div className="input-group-reg">
             <input
               type="text"
               placeholder="Username"
@@ -69,7 +69,7 @@ const UserRegistration = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-reg">
             <input
               type="text"
               placeholder="Full Name"
@@ -77,7 +77,7 @@ const UserRegistration = () => {
               onChange={(e) => setFullName(e.target.value)}
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-reg">
             <input
               type="email"
               placeholder="Email"
@@ -85,7 +85,7 @@ const UserRegistration = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-reg">
             <input
               type="password"
               placeholder="Password"

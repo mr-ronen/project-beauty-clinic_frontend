@@ -55,6 +55,14 @@ nav li:hover .dropdown {
   display: block;
 }
 
+.auth-button {
+  background: none;
+  border: none;
+  color: black; /* Match your design */
+  font-size: 1.2vw;
+  font-weight: 300;
+  cursor: pointer;
+}
 /* For laptop or small-size screen */
 @media (max-width: 1024px) and (min-width: 768px) {
   .logo {
@@ -82,7 +90,9 @@ nav li:hover .dropdown {
   .logo {
     width: 15vw;
   }
-
+  .auth-button {
+    font-size: 3vw; 
+  }
   .cart-icon {
     height: 5vw;
   }
@@ -107,6 +117,9 @@ nav li:hover .dropdown {
 @media (max-width: 480px) {
   header nav {
     display: none;
+  }
+  .auth-button {
+    font-size: 3.5vw; /* Even larger font for mobile screens */
   }
   .header {
     align-items: flex-start;

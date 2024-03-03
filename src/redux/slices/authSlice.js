@@ -36,7 +36,7 @@ export const login = createAsyncThunk(
     try {
       const response = await apiClient.post("/api/Authentication/login", {
         username,
-        password, 
+        password,
       });
       return response.data;
     } catch (error) {
@@ -77,8 +77,13 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
-        state.user = action.payload.user;
+        state.user = {
+          username: action.payload.username,
+          userId: action.payload.userId,
+        };
+
         localStorage.setItem("token", action.payload.token);
+        console.log("Updated state after login:", state);
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;

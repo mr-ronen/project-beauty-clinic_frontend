@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
@@ -14,6 +15,7 @@ import Administration from "./pages/Administration/Administration";
 import ShopManagement from "./pages/ShopManagement/ShopManagement";
 import UsersManagement from "./pages/UsersManagement/UsersManagement";
 import ProductPage from "./pages/ProductPage/ProductPage";
+
 function App() {
   return (
     <div>
