@@ -33,7 +33,7 @@ const SearchBar = () => {
         value={query}
         onChange={onChange}
         placeholder="Search for products..."
-        className="search-input" // Use this class to style your input
+        className="search-input" 
       />
       <button type="submit" className="search-button">
         Search

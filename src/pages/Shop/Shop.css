@@ -17,3 +17,11 @@
   gap: 20px;
   padding: 10px;
 }
+
+.product-link,
+.product-link:visited,
+.product-link:hover,
+.product-link:active {
+  text-decoration: none;
+  color: rgb(80, 74, 74); 
+}

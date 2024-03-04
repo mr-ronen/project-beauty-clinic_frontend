@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import productService from "../../services/productService";
 
-// Define the initial state for the products slice
 const initialState = {
   products: [],
   isLoading: false,
@@ -93,7 +92,7 @@ const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    // Reducers for other synchronous actions if necessary
+    
   },
   extraReducers: (builder) => {
     builder

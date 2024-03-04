@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from "../../redux/slices/productSlice";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import "./Shop.css";
-import { fetchProducts } from "../../redux/slices/productSlice";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./Shop.css";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,9 @@ const Shop = () => {
         <div className="product-grid">
           {products.length ? (
             products.map((product) => (
-              <ProductCard key={product.productId} product={product} />
+              <Link to={`/product/${product.productId}`} key={product.productId} className="product-link">
+              <ProductCard product={product} />
+            </Link>
             ))
           ) : (
             <p>No products available.</p>

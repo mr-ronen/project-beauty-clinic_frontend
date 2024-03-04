@@ -1,9 +1,5 @@
-import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
-import { useSelector, useDispatch } from "react-redux";
-import { setProducts } from "../../redux/slices/productSlice";
 import Footer from "../../components/Footer/Footer";
-import cardphoto from "../../assets/images/course.png";
 import "./Courses.css";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import cardimage from "../../assets/images/homecardphoto.webp";

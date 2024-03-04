@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
-import { useSelector, useDispatch } from "react-redux";
-//import { setProducts } from "../../redux/slices/productSlice";
-//import productService from "../../services/productService";
 
 /*Purpose: Where users enter payment and shipping information 
-to complete their purchase.
+to complete their purchase. currently isnt needed for the website admin to implement
 */
 
 const CheckOut = () => {

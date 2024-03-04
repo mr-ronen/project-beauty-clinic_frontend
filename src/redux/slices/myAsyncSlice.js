@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import myService from '../../services/myService'; // service for API calls
+import myService from '../../services/myService'; 
 
 export const fetchAsyncData = createAsyncThunk(
   'myAsync/fetchData',

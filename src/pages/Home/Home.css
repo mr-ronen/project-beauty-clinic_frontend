@@ -4,9 +4,9 @@
   overflow: hidden;
   height: 600px;
   background-image: url("../../assets/images/mainPagePhoto.png");
-  background-size: contain; /* Or 'cover' to fill the height; 'contain' will ensure the whole image is visible */
+  background-size: contain; 
   background-position: center;
-  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-repeat: no-repeat; 
   display: flex;
   justify-content: center;
   align-items: center;

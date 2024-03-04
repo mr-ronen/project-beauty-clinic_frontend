@@ -75,7 +75,7 @@ const ShopManagement = () => {
           <ProductForm
             product={{}} // Pass an empty object for a new product
             isEditing={false}
-            onUpdate={() => {}} // No need to pass an update function for adding
+            onUpdate={() => {}} 
           />
         )}
         {editMode && (

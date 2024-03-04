@@ -1,45 +1,45 @@
 .product-page {
   display: flex;
   justify-content: center;
-  align-items: center; /* Center the content vertically */
-  min-height: 100vh; /* Make it fill the whole viewport height */
-  padding: 20px; /* Add some padding around */
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .product-container {
   display: flex;
-  flex-direction: row; /* Align image and info side by side */
-  align-items: center; /* Center items vertically */
+  flex-direction: row;
+  align-items: center;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Take full width */
-  max-width: 1200px; /* Maximum width */
-  margin: auto; /* Center it horizontally */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .product-image-container {
-  width: 50%; /* Image takes up half the width */
+  width: 50%;
 }
 
-.product-image {
-  width: 100%; /* Image takes the full width of its container */
+.product-page-image {
+  width: 100%;
   height: auto;
   border-radius: 4px;
 }
 
 .product-info-a {
-  width: 50%; /* Info area takes the other half */
+  width: 50%;
   padding: 20px;
 }
 
 .product-name {
-  font-size: 2.5rem; /* Slightly bigger font for the name */
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .product-description {
-  font-size: 1.2rem; /* Slightly bigger font for the description */
+  font-size: 1.2rem;
   margin-bottom: 20px;
   color: #666;
 }
@@ -57,8 +57,8 @@
 }
 
 .product-discount-price {
-  font-size: 1.5rem;
-  color: #cc0000;
+  font-size: 1.2rem;
+  color: #b63d3d;
   font-weight: bold;
 }
 
@@ -84,15 +84,25 @@
   background-color: #005f73;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .product-container {
     flex-direction: column;
   }
 
+  .product-page-image {
+    width: 50%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .product-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
   .product-image-container,
   .product-info-a {
-    width: 100%; /* Both take full width on small screens */
+    width: 100%;
   }
 
   .product-pricing {

@@ -1,45 +1,45 @@
 form {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Ensures consistent spacing between elements */
-    background-color: #f9f9f9; /* Light background to distinguish the search area */
-    padding: 15px;
-    border-radius: 25px; /* Rounded edges for a modern look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
   
-  .search-input {
-    flex: 1; /* Allows the input to fill the available space */
+.search-input {
+    flex: 1;
     padding: 10px 20px;
-    border: 2px solid #ddd; /* Subtle border */
-    border-radius: 20px; /* Rounded corners for the input field */
-    outline: none; /* Removes the default focus outline */
-    transition: border-color 0.3s; /* Smooth transition for focus effect */
-  }
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+}
   
-  .search-input:focus {
-    border-color: #007bff; /* Highlight color when focused */
-  }
+.search-input:focus {
+  border-color: #007bff;
+}
   
   .search-button, .reset-button {
     padding: 10px 20px;
     border: none;
-    border-radius: 20px; /* Rounded corners for buttons */
+    border-radius: 20px; 
     cursor: pointer;
-    background-color: #007bff; /* Replace with your theme color */
-    color: white; /* Text color for buttons */
+    background-color: #007bff; 
+    color: white; 
     font-weight: bold;
-    transition: background-color 0.3s; /* Smooth background transition */
+    transition: background-color 0.3s;
   }
   
   .search-button:hover, .reset-button:hover {
-    background-color: #0056b3; /* Darker shade for hover effect */
+    background-color: #0056b3; 
   }
   
   .reset-button {
-    background-color: #6c757d; /* A different color for the reset button for distinction */
+    background-color: #6c757d; 
   }
   
   .reset-button:hover {
-    background-color: #545b62; /* Darker shade for hover effect on reset button */
+    background-color: #545b62; 
   }

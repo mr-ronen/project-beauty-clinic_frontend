@@ -16,7 +16,6 @@ const LogIn = () => {
 
   useEffect(() => {
     // This will log the user object every time it changes
-    console.log("Logged in user:", user);
   }, [user]);
   
   const handleLogin = async (event) => {

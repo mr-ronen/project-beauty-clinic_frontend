@@ -8,10 +8,8 @@ function ProductCard({ product }) {
         alt={product.name}
       />
       <div className="product-info">
-        <h3>{product.name}</h3>
-        <p>{product.description}</p>
-        <div className="product-price">${product.price}</div>
-        <button className="product-button">Add to Cart</button>
+        <h3 className="products-name">{product.name}</h3>
+        <div className="product-card-price">${product.price}</div>
       </div>
     </div>
   );

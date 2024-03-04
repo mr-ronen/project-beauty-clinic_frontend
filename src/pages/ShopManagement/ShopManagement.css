@@ -7,7 +7,7 @@
 }
 .shop-management {
   max-width: 1200px;
-  margin: auto; /* Center the table */
+  margin: auto; 
 }
 .shop-management {
   direction: rtl;
@@ -44,35 +44,35 @@
   border-radius: 6px;
 }
 
-/* Add zebra striping to the table rows for better readability */
+
 .shop-management tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Hover effect for rows */
+
 .shop-management tr:hover {
   background-color: #f1f1f1;
 }
 
 /* Style for the edit button */
 .edit-btn {
-  background-color: #668666; /* Green background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 8px 16px; /* Padding for a larger clickable area */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Transition effect for background color */
+  background-color: #668666;
+  color: white;
+  border: none; 
+  padding: 8px 16px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
 }
 
 .delete-btn {
-  background-color: #815d5d; /* Green background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 8px 16px; /* Padding for a larger clickable area */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Transition effect for background color */
+  background-color: #815d5d;
+  color: white; 
+  border: none;
+  padding: 8px 16px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
 }
 .edit-btn:hover {
   background-color: #78c57c;

@@ -12,11 +12,11 @@ const Cart = () => {
       <h1 className="cart-page-title">Shopping Cart</h1>
       <CartComponent />
       <div className="cart-additional">
-        {/* This button could link back to the products page or wherever you see fit */}
+       
         <Link to="/shop" className="continue-shopping-btn">
           Continue Shopping
         </Link>
-        {/* Implement any additional elements here, such as a summary box, promotions, or a checkout button */}
+        {/* summary box, promotions, or a checkout button */}
       </div>
       <Footer />
     </div>

@@ -14,7 +14,7 @@ export const fetchCartItems = createAsyncThunk(
   }
 );
 
-// Async thunk for adding an item to the cart
+// adding an item to the cart
 export const addItemToCart = createAsyncThunk(
   "cart/addItemToCart",
   async ({ userId, productId, quantity }, { rejectWithValue }) => {
@@ -24,27 +24,27 @@ export const addItemToCart = createAsyncThunk(
         productId,
         quantity,
       });
-      return response.data; // Assuming the backend returns the updated cart items
+      return response.data; 
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
   }
 );
 
-// Async thunk for removing an item from the cart
+// removing an item from the cart
 export const removeItemFromCart = createAsyncThunk(
   "cart/removeItemFromCart",
   async (cartItemId, { rejectWithValue }) => {
     try {
       const response = await apiClient.delete(`/api/cart/remove/${cartItemId}`);
-      return response.data; // Assuming the backend returns the updated cart items
+      return response.data; 
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
   }
 );
 
-// Async thunk for updating the quantity of a cart item
+// updating the quantity of a cart item
 export const updateCartItemQuantity = createAsyncThunk(
   "cart/updateCartItemQuantity",
   async ({ cartItemId, quantity }, { rejectWithValue }) => {
@@ -52,7 +52,7 @@ export const updateCartItemQuantity = createAsyncThunk(
       const response = await apiClient.put(`/api/cart/update/${cartItemId}`, {
         quantity,
       });
-      return response.data; // Assuming the backend returns the updated cart items
+      return response.data; //backend returns the updated cart items
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -67,11 +67,11 @@ const cartSlice = createSlice({
     error: null,
   },
   reducers: {
-    // Add synchronous reducers here if needed
+    //  synchronous reducers here if needed
   },
   extraReducers(builder) {
     builder
-      // Handle fetchCartItems
+      // fetchCartItems
       .addCase(fetchCartItems.pending, (state) => {
         state.status = "loading";
       })
@@ -83,21 +83,21 @@ const cartSlice = createSlice({
         state.status = "failed";
         state.error = action.payload;
       })
-      // Handle addItemToCart
+      // addItemToCart
       .addCase(addItemToCart.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(addItemToCart.rejected, (state, action) => {
         state.error = action.payload;
       })
-      // Handle removeItemFromCart
+      // removeItemFromCart
       .addCase(removeItemFromCart.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(removeItemFromCart.rejected, (state, action) => {
         state.error = action.payload;
       })
-      // Handle updateCartItemQuantity
+      // updateCartItemQuantity
       .addCase(updateCartItemQuantity.fulfilled, (state, action) => {
         state.items = action.payload;
       })

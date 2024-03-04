@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom"; // Assuming you are using react-router for navigation
+import { Link } from "react-router-dom"; 
 import "./CartComponent.css";
 import {
   fetchCartItems,
@@ -83,7 +83,7 @@ export const CartComponent = () => {
             <tbody>
               {items.map((item) => (
                 <tr key={item.cartItemId}>
-                  {/* Assuming you have the product details including name, category, etc. */}
+                  {/*product details including name, category */}
                   <td>{item.name}</td>
                   <td>${item.price}</td>
                   <td>{item.category}</td>

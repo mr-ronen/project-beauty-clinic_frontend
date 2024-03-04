@@ -32,7 +32,7 @@ const ProductPage = () => {
       <Header />
       <div className="product-container">
         <div className="product-image-container">
-          <img src={product.imageUrl} alt={product.name} className="product-image" />
+          <img src={product.imageUrl} alt={product.name} className="product-page-image" />
         </div>
         <div className="product-info-a">
           <h1 className="product-name">{product.name}</h1>
@@ -40,7 +40,7 @@ const ProductPage = () => {
           <div className="product-pricing">
             <p className="product-price">Price: ${product.price.toFixed(2)}</p>
             {product.discountPrice && (
-              <p className="product-discount-price">Sale: ${product.discountPrice.toFixed(2)}</p>
+              <p className="product-discount-price">Discount: ${product.discountPrice.toFixed(2)}</p>
             )}
           </div>
           <p className="product-stock">In Stock: {product.stockQuantity}</p>
