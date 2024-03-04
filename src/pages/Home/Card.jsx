@@ -1,7 +1,14 @@
 import React from 'react';
 import './Card.css';
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ title, description, buttonText, imageUrl }) => {
+
+  const navigate = useNavigate(); 
+  const navigateToCourses = () => {
+    navigate('/Courses'); // Use navigate to change the route
+  };
+
   return (
     <div className="card">
       <div className="card-image-container">
@@ -10,7 +17,7 @@ const Card = ({ title, description, buttonText, imageUrl }) => {
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="card-description">{description}</p>
-        <button className="card-button">{buttonText}</button>
+        <button className="card-button" onClick={navigateToCourses}>לפרטים נוספים</button>
       </div>
       
     </div>

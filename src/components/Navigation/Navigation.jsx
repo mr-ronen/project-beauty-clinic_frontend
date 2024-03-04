@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Navigation.css";
 import Menubar from "../../assets/images/Menu.png";
+import { logout } from "../../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // Redirect to home page or show a message if needed
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -12,8 +21,9 @@ const Navigation = () => {
         setIsOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
+
+   
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -36,7 +46,15 @@ const Navigation = () => {
           <li>
             <a href="/About">צור קשר</a>
           </li>
-         
+          {isLoggedIn ? (
+            <li>
+              <button onClick={handleLogout} className="auth-button">התנתקות</button>
+            </li>
+          ) : (
+            <li>
+              <a href="/login" className="auth-button">התחברות</a> 
+            </li>
+          )}
         </ul>
       </div>
     </>

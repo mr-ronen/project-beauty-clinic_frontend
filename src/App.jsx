@@ -15,6 +15,9 @@ import Administration from "./pages/Administration/Administration";
 import ShopManagement from "./pages/ShopManagement/ShopManagement";
 import UsersManagement from "./pages/UsersManagement/UsersManagement";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Terms from "./pages/Terms/Terms";
+import Shipping from "./pages/Shipping/Shipping";
+import Service from "./pages/Service/Service";
 
 function App() {
   return (
@@ -28,13 +31,16 @@ function App() {
           <Route path="/Shop" element={<Shop />} />
           <Route path="/About" element={<About />} />
           <Route path="/Treatments" element={<Treatments />} />
+          <Route path="/Terms" element={<Terms />} />
           <Route path="/Courses" element={<Courses />} />
           <Route path="/CourseDetails" element={<CourseDetails />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/CheckOut" element={<CheckOut />} />
           <Route path="/Administration" element={<Administration />} />
+          <Route path="/Service" element={<Service />} />
           <Route path="/ShopManagement" element={<ShopManagement />} />
           <Route path="/ShopManagement/:id" element={<ShopManagement />} />
+          <Route path="/Shipping" element={<Shipping />} />
           <Route path="/UsersManagement" element={<UsersManagement />} />
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />

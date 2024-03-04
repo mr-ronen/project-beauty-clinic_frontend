@@ -25,3 +25,9 @@
   text-decoration: none;
   color: rgb(80, 74, 74); 
 }
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 5px;
+  }
+}

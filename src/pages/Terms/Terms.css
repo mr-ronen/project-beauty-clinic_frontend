@@ -1,0 +1,15 @@
+.terms-container {
+  direction: rtl;
+  text-align: right;
+}
+
+.terms-container h1,
+.terms-container h5,
+.terms-container h6,
+.terms-container p {
+  text-align: right;
+}
+
+p {
+  font-size: 16px;
+}

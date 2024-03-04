@@ -43,7 +43,7 @@ const Header = () => {
             </li>
           ) : (
             <li>
-              <a href="/login" className="auth-button">התחברות</a> {/* Use Link if you're using react-router */}
+              <a href="/login" className="auth-button">התחברות</a> 
             </li>
           )}
           <li>
