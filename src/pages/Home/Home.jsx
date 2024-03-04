@@ -7,7 +7,6 @@ import cardphoto from "../../assets/images/homecardphoto.webp";
 import cardphoto2 from "../../assets/images/homecardphoto2.webp";
 import cardphoto3 from "../../assets/images/homecardphoto3.webp";
 import OpCard from "./CardOp";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return (

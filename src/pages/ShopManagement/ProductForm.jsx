@@ -50,6 +50,8 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
     >
       {({ isSubmitting, errors }) => (
         <Form>
+          <div className="form-flex-container">
+          <div className="form-field-group">
           <Field
             name="name"
             type="text"
@@ -57,6 +59,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-2"
           />
           <ErrorMessage name="name" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="price"
             type="number"
@@ -64,6 +69,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-1"
           />
           <ErrorMessage name="price" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="discountPrice"
             type="number"
@@ -71,6 +79,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-1"
           />
           <ErrorMessage name="discountPrice" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="stockQuantity"
             type="number"
@@ -78,6 +89,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-1"
           />
           <ErrorMessage name="quantity" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="imageUrl"
             type="text"
@@ -85,6 +99,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-2"
           />
           <ErrorMessage name="imageUrl" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="description"
             as="textarea"
@@ -92,6 +109,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-description"
           />
           <ErrorMessage name="description" component="div" />
+          </div>
+          <div className="form-field-group">
+
           <Field
             name="category"
             as="select"
@@ -99,7 +119,9 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
             className="form-input-1"
           />
           <ErrorMessage name="category" component="div" />
+          </div>
           {errors.general && <div>{errors.general.title}</div>}
+          </div>
           <button type="submit" disabled={isSubmitting} className="form-button">
             {isEditing ? "Update Product" : "Add Product"}
           </button>

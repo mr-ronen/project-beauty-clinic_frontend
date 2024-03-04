@@ -75,7 +75,7 @@ const ShopManagement = () => {
           <ProductForm
             product={{}} // Pass an empty object for a new product
             isEditing={false}
-            onUpdate={() => {}} 
+            onUpdate={() => {}}
           />
         )}
         {editMode && (
@@ -91,8 +91,8 @@ const ShopManagement = () => {
               <th className="th">Image</th>
               <th className="th">Name</th>
               <th className="th">Cost</th>
-              <th className="th">Quantity</th>
-              <th className="th">Discount Price</th>
+              <th className="th stock-quantity">Quantity</th>
+              <th className="th discount-price">Discount Price</th>
               <th className="th">Action</th>
             </tr>
           </thead>
@@ -108,8 +108,8 @@ const ShopManagement = () => {
                 </td>
                 <td>{product?.name}</td>
                 <td>${product?.price}</td>
-                <td>{product?.stockQuantity}</td>
-                <td>${product?.discountPrice}</td>
+                <td className="stock-quantity">{product?.stockQuantity}</td>
+                <td className="discount-price">${product?.discountPrice}</td>
                 <td>
                   <button
                     onClick={() => handleEditClick(product)}

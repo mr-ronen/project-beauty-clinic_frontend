@@ -3,7 +3,6 @@ import "./Terms.css";
 import Header from "../../components/Header/Header";
 
 const Terms = () => {
-  const isRtl = true;
   return (
     <div>
       <Header />

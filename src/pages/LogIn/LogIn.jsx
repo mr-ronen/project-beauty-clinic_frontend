@@ -41,6 +41,7 @@ const LogIn = () => {
         <h2>Welcome!</h2>
         <p className="invitation">Log in by entering the information below.</p>
         <form onSubmit={handleLogin} className="login-form">
+        <label htmlFor="username">Username</label>
           <div className="input-group">
             <input
               type="text"
@@ -49,6 +50,7 @@ const LogIn = () => {
               onChange={(e) => setCredential(e.target.value)}
             />
           </div>
+          <label htmlFor="password">Password</label>
           <div className="input-group">
             <input
               type="password"

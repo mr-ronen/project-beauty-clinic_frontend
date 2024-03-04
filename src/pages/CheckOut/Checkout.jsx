@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 
 /*Purpose: Where users enter payment and shipping information 

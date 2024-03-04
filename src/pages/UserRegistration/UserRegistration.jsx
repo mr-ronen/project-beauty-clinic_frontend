@@ -55,12 +55,14 @@ const UserRegistration = () => {
   return (
     <div className="user-registration-container">
       <Header />
+    
       <div className="registration-card">
         <h2>Register</h2>
         <p className="invitation">
           Register to benefit from our shop's exclusive deals!
         </p>
         <form onSubmit={handleSubmit} className="registration-form">
+          <label htmlFor="Username">Username</label>
           <div className="input-group-reg">
             <input
               type="text"
@@ -69,6 +71,7 @@ const UserRegistration = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
+          <label htmlFor="FullName">Full Name</label>
           <div className="input-group-reg">
             <input
               type="text"
@@ -77,6 +80,7 @@ const UserRegistration = () => {
               onChange={(e) => setFullName(e.target.value)}
             />
           </div>
+          <label htmlFor="Email">Email</label>
           <div className="input-group-reg">
             <input
               type="email"
@@ -85,6 +89,7 @@ const UserRegistration = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          <label htmlFor="Password">Password</label>
           <div className="input-group-reg">
             <input
               type="password"
