@@ -39,8 +39,10 @@ Note: Replace [your website URL] with the actual URL where your website is hoste
 
 
  To try the administration crud functions go to the http://localhost:3000/Administration (Administration page) and there press on ("עריכת חנות ") . 
+ 
  or go straight to http://localhost:3000/ShopManagement the page where the crud opirations take place in . 
- in the current state of the project being logged in as admin/client is not needed for because of testing reasons.
+ 
+ in the current state of the project being logged in as admin/client is not needed for using the shopmanagement  because of testing reasons.
  So any user who wants to try the crud opirations can try it at Shopmanagement page :) 
 
  In order to use the cart a user must be logged in . 
