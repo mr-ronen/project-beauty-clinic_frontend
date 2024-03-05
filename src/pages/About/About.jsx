@@ -54,50 +54,59 @@ const About = () => {
   };
 
   return (
-    <div className="contact-container">
+    <div>
       <Header />
       <br /> <br />
       <br />
-      {submissionMessage && (
-        <div className="submission-message">{submissionMessage}</div>
-      )}
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="Enter Your First Name"
-          onChange={handleChange}
-          value={contactDetails.firstName}
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Enter Your Last Name"
-          onChange={handleChange}
-          value={contactDetails.lastName}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Your Email"
-          onChange={handleChange}
-          value={contactDetails.email}
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Enter Your Phone"
-          onChange={handleChange}
-          value={contactDetails.phone}
-        />
-        <textarea
-          name="message"
-          placeholder="Enter Your Message Here"
-          onChange={handleChange}
-          value={contactDetails.message}
-        ></textarea>
-        <button type="submit">Submit</button>
-      </form>
+      <div className="about-header">
+        <h1 className="about-title">Contact Us</h1>
+        <p className="about-intro">
+          For all order support, please include your order number and date that
+          your order was placed.
+        </p>
+      </div>
+      <div className="contact-container">
+        {submissionMessage && (
+          <div className="submission-message">{submissionMessage}</div>
+        )}
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Enter Your First Name"
+            onChange={handleChange}
+            value={contactDetails.firstName}
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Enter Your Last Name"
+            onChange={handleChange}
+            value={contactDetails.lastName}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Your Email"
+            onChange={handleChange}
+            value={contactDetails.email}
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Enter Your Phone"
+            onChange={handleChange}
+            value={contactDetails.phone}
+          />
+          <textarea
+            name="message"
+            placeholder="Enter Your Message Here"
+            onChange={handleChange}
+            value={contactDetails.message}
+          ></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
       <Footer />
     </div>
   );

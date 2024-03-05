@@ -32,10 +32,11 @@ export const CartComponent = () => {
 
   // function to calculate total cost
   const calculateTotalCost = () => {
-    return cartItems.reduce((total, cartItem) => {
+    const totalCost = cartItems.reduce((total, cartItem) => {
       const product = products.find((p) => p.productId === cartItem.productId);
       return total + (product?.price || 0) * cartItem.quantity;
     }, 0);
+    return parseFloat(totalCost.toFixed(2));
   };
 
   // function to calculate total items

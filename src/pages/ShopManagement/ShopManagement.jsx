@@ -24,7 +24,7 @@ const ShopManagement = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch, products]);
+  }, [dispatch]);
 
   const handleEditClick = (product) => {
     setCurrentProduct(product);
@@ -67,6 +67,7 @@ const ShopManagement = () => {
   return (
     <>
       <div className="shop-management">
+        <br/><br/>
         <h1 className="title">Shop Management</h1>
         <button onClick={toggleAddForm} className="add-product-btn">
           Add Product

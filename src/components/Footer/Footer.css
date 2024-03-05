@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background: #f8f8f8; 
+  background: #f8f8f8;
   position: relative;
   clear: both;
   bottom: 0;
@@ -32,13 +32,13 @@
 .footer-info p,
 .footer-info input,
 .footer-info button {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .footer-info input {
   text-align: right;
   padding: 5px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 .footer-info button {
   padding: 5px;
@@ -57,60 +57,125 @@
 }
 
 .footer-links a {
-  color: #333; 
+  color: #333;
   text-decoration: none;
-  margin: 0 10px; 
+  margin: 0 10px;
 }
 
 .footer-links a:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
+
+/* For tablets and small laptops/desktops */
+@media (max-width: 1024px) {
+  .footer-content,
+  .footer-bottom {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin-bottom: 1rem;
+  }
+
+  .footer-info {
+    order: -1; /* Bring the form to the top */
+  }
+
+  .footer-info form {
+    width: 100%;
+    max-width: 500px; /* Set a max-width for the form */
+  }
+
+  .footer-photo {
+  display: none;
+  }
+
+  .creator-text {
+    position: static; /* Override absolute positioning */
+    margin: 1rem 0;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Add space between links */
+    margin-bottom: 1rem;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .footer-content,
+  .footer-bottom {
+    padding: 1rem;
+    
+  }
+  .footer-photo {
+    display:block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .footer-info form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .footer-info input,
+  .footer-info button {
+    margin: 0 0 1rem 0;
+    width: 100%; /* Make inputs take full width */
+  }
+
+  .footer-links a {
+    margin: 0; /* Remove margin around links for tighter packing */
+  }
+}
+
 /* For mobile devices */
 @media (max-width: 480px) {
   .footer-content {
     flex-direction: column;
+    padding: 10px;
+  }
+  .footer-photo {
+    display: none;
+    }
+  .footer-info {
+    width: 100%;
+  }
+
+  .footer-info form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-info input,
+  .footer-info button {
+    margin: 0 0 1rem 0;
+    width: auto;
+  }
+
+  .footer-photo {
+    margin-top: 1rem;
   }
 
   .footer-bottom {
-    flex-direction: column;
     text-align: center;
   }
 
   .creator-text,
   .footer-links {
-    margin: 10px 0;
-  }
-}
-
-/* For tablets */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-  }
-  .footer-photo,
-  .creator-text {
-    display: none;
+    position: static;
+    padding: 0.5rem 1rem;
   }
 
-  .footer-bottom {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .creator-text,
   .footer-links {
-    margin: 10px 0;
-  }
-}
-
-/* For laptops */
-@media (max-width: 1024px) and (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
   }
 }

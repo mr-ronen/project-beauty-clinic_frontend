@@ -58,8 +58,11 @@ const Footer = () => {
             .רוצה לשמוע פרטים נוספים? מלאי את הפרטים בטופס המצורף ונחזור אליכם
           </p>
           <div className="footer-content">
-          {submitted && <p className="success-message">Message sent successfully!</p>}
+            {submitted && (
+              <p className="success-message">Message sent successfully!</p>
+            )}
             <form onSubmit={handleCallbackSubmit}>
+              
               <input
                 type="text"
                 name="name"
@@ -67,6 +70,8 @@ const Footer = () => {
                 onChange={handleInputChange}
                 value={callbackDetails.name}
               />
+              <label htmlFor="name">:שם</label>
+              
               <input
                 type="tel"
                 name="phone"
@@ -74,6 +79,8 @@ const Footer = () => {
                 onChange={handleInputChange}
                 value={callbackDetails.phone}
               />
+              <label htmlFor="phone">:מספר טלפון</label>
+              
               <input
                 type="email"
                 name="email"
@@ -81,6 +88,7 @@ const Footer = () => {
                 onChange={handleInputChange}
                 value={callbackDetails.email}
               />
+              <label htmlFor="email">:אימייל</label>
               <button type="submit">שלח</button>
             </form>
           </div>
@@ -90,7 +98,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p className="creator-text">Created by Ronen Iosifov 2023</p>
         <div className="footer-links">
-          <a href="/Terms">תקנון האתר</a> |<a href="/Shipping">משלוחים</a> |
+          <a href="/Terms">תקנון האתר</a> <a href="/Shipping">משלוחים</a>
           <a href="/Service">החלפות החזרות</a>
         </div>
       </div>
