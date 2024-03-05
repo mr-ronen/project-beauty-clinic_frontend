@@ -126,6 +126,7 @@ export const CartComponent = () => {
           <div className="cart-summary">
             <p>Total Items: {totalItems()}</p>
             <p>Total Cost: ${calculateTotalCost()}</p>
+            <h3>העגלה היא שירות שהוספנו כדי שהלקוחות שלו יוכלו לדעת מה הם רוצים לקנות לפני האגעה לסניף . לכל שאלה אנו תמיד פנויים לעזור 054-5544455  </h3>
           </div>
         </>
       )}
