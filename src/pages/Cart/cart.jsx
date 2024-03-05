@@ -9,7 +9,7 @@ const Cart = () => {
   return (
     <div className="cart-page">
       <Header />
-      <h1 className="cart-page-title">Shopping Cart</h1>
+      <br/><br/>
       <CartComponent />
       <div className="cart-additional">
        

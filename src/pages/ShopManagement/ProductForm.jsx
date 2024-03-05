@@ -32,15 +32,18 @@ const ProductForm = ({ product, isEditing, onUpdate }) => {
     description: Yup.string(),
   });
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     if (isEditing) {
       const { id, ...productData } = values;
-      dispatch(updateProduct({ id, productData }));
+      await dispatch(updateProduct({ id, productData })).unwrap();
+      onUpdate(); 
     } else {
-      dispatch(addProduct(values));
+      await dispatch(addProduct(values)).unwrap();
+      onUpdate(); 
     }
     setSubmitting(false);
-  };
+    resetForm(); 
+};
 
   return (
     <Formik

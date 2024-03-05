@@ -38,8 +38,14 @@ const ShopManagement = () => {
         id: currentProduct.productId,
         productData,
       })
-    );
-    setEditMode(false); // Exit edit mode after update
+    )
+      .then(() => {
+        dispatch(fetchProducts());
+        setEditMode(false);
+      })
+      .catch((error) => {
+        console.error("Failed to update product:", error);
+      });
   };
 
   // Function to toggle the form visibility
@@ -67,7 +73,8 @@ const ShopManagement = () => {
   return (
     <>
       <div className="shop-management">
-        <br/><br/>
+        <br />
+        <br />
         <h1 className="title">Shop Management</h1>
         <button onClick={toggleAddForm} className="add-product-btn">
           Add Product
