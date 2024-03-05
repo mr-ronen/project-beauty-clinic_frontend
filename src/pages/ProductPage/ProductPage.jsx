@@ -20,8 +20,7 @@ const ProductPage = () => {
   }, [dispatch, products.length]);
 
   const handleAddToCart = () => {
-    // Make sure you have a valid user ID here. This is just an example.
-    const userId = user?.userId; // Replace with actual logic to obtain userId
+    const userId = user?.userId; 
     if (!userId) {
       alert("You must be logged in to add items to the cart.");
       return;
@@ -31,7 +30,7 @@ const ProductPage = () => {
         addItemToCart({
           userId,
           productId: product.productId,
-          quantity: 1, // Or any selected quantity
+          quantity: 1, 
         })
       );
     }

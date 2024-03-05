@@ -1,5 +1,7 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
 import About from "./pages/About/About";
@@ -19,10 +21,31 @@ import Terms from "./pages/Terms/Terms";
 import Shipping from "./pages/Shipping/Shipping";
 import Service from "./pages/Service/Service";
 
+function UnauthorizedListener() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleUnauthorized = () => {
+      toast.error("התחברו מחדש כדי להשתמש בעגלה", {
+        onClose: () => navigate("/LogIn"), // Navigate after the toast is dismissed
+      });
+    };
+
+    window.addEventListener("unauthorized", handleUnauthorized);
+
+    return () => {
+      window.removeEventListener("unauthorized", handleUnauthorized);
+    };
+  }, [navigate]);
+
+  return <ToastContainer />;
+}
+
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <UnauthorizedListener />
         <Routes>
           <Route index element={<Home />} />
           <Route path="/Home" element={<Home />} />

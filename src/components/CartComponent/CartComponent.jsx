@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "./CartComponent.css";
 import {
   fetchCartItems,
@@ -8,10 +8,16 @@ import {
   removeItemFromCart,
   updateCartItemQuantity,
 } from "../../redux/slices/cartSlice";
+import { fetchProducts } from "../../redux/slices/productSlice";
 
 export const CartComponent = () => {
   const dispatch = useDispatch();
-  const { items, status, error } = useSelector((state) => state.cart);
+  const {
+    items: cartItems,
+    status,
+    error,
+  } = useSelector((state) => state.cart);
+  const { products } = useSelector((state) => state.product);
   const user = useSelector((state) => state.auth.user);
   const userId = user?.userId;
 
@@ -19,16 +25,22 @@ export const CartComponent = () => {
     if (userId) {
       dispatch(fetchCartItems(userId));
     }
-  }, [userId, dispatch]);
+    if (products.length === 0) {
+      dispatch(fetchProducts());
+    }
+  }, [userId, dispatch, products.length]);
 
   // function to calculate total cost
   const calculateTotalCost = () => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, cartItem) => {
+      const product = products.find((p) => p.productId === cartItem.productId);
+      return total + (product?.price || 0) * cartItem.quantity;
+    }, 0);
   };
 
   // function to calculate total items
   const totalItems = () => {
-    return items.reduce((total, item) => total + item.quantity, 0);
+    return cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
   };
 
   if (status === "loading") {
@@ -47,25 +59,43 @@ export const CartComponent = () => {
   }
 
   if (error) {
-    return <div className="cart-container">Error: {error}</div>;
+    return <div className="cart-container">Error: {error.message}</div>;
   }
 
   const handleAddItem = (productId, quantity) => {
-    dispatch(addItemToCart({ userId, productId, quantity }));
+    dispatch(addItemToCart({ userId, productId, quantity }))
+      .unwrap()
+      .then(() => {
+        // Handle the success.
+        console.log("Item added to cart successfully");
+        // Optionally, update the UI or state here if needed.
+      })
+      .catch((error) => {
+        // Handle any errors.
+        console.error("Failed to add item to cart:", error);
+        alert("Failed to add item to cart. Please try again.");
+      });
   };
 
   const handleRemoveItem = (cartItemId) => {
-    dispatch(removeItemFromCart(cartItemId));
-  };
-
-  const handleUpdateQuantity = (cartItemId, quantity) => {
-    dispatch(updateCartItemQuantity({ cartItemId, quantity }));
+    dispatch(removeItemFromCart(cartItemId))
+      .unwrap()
+      .then(() => {
+        // Handle the success.
+        console.log("Item removed from cart successfully");
+        // Optionally, update the UI or state here if needed.
+      })
+      .catch((error) => {
+        // Handle any errors.
+        console.error("Failed to remove item from cart:", error);
+        alert("Failed to remove item from cart. Please try again.");
+      });
   };
 
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
-      {items.length === 0 ? (
+      {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
@@ -81,55 +111,69 @@ export const CartComponent = () => {
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => (
-                <tr key={item.cartItemId}>
-                  {/*product details including name, category */}
-                  <td>{item.name}</td>
-                  <td>${item.price}</td>
-                  <td>{item.category}</td>
-                  <td>
-                    <img
-                      src={item.imageUrl}
-                      alt={item.name}
-                      style={{ width: "50px", height: "50px" }}
-                    />
-                  </td>
-                  <td>
-                    <button
-                      onClick={() =>
-                        handleUpdateQuantity(item.cartItemId, item.quantity + 1)
-                      }
-                    >
-                      +
-                    </button>
-                    {item.quantity}
-                    <button
-                      onClick={() =>
-                        handleUpdateQuantity(
-                          item.cartItemId,
-                          Math.max(item.quantity - 1, 0)
-                        )
-                      }
-                    >
-                      -
-                    </button>
-                  </td>
-                  <td>
-                    <button onClick={() => handleRemoveItem(item.cartItemId)}>
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {cartItems.map((cartItem) => {
+                const product = products.find(
+                  (p) => p.productId === cartItem.productId
+                );
+                if (!product) return null; // Or some placeholder if product not found
+                return (
+                  <tr key={cartItem.cartItemId}>
+                    <td>{product.name}</td>
+                    <td>${product.price}</td>
+                    <td>{product.category}</td>
+                    <td>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                    </td>
+                    <td>{cartItem.quantity}</td>
+                    <td>
+                      <button
+                        onClick={() => handleRemoveItem(cartItem.cartItemId)}
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <div className="cart-summary">
             <p>Total Items: {totalItems()}</p>
             <p>Total Cost: ${calculateTotalCost()}</p>
-            <h3>העגלה היא שירות שהוספנו כדי שהלקוחות שלו יוכלו לדעת מה הם רוצים לקנות לפני האגעה לסניף . לכל שאלה אנו תמיד פנויים לעזור 054-5544455  </h3>
+            <h3>
+              העגלה היא שירות שהוספנו כדי שהלקוחות שלו יוכלו לדעת מה הם רוצים
+              לקנות לפני האגעה לסניף . לכל שאלה אנו תמיד פנויים לעזור
+              054-5544455{" "}
+            </h3>
           </div>
         </>
       )}
     </div>
   );
 };
+
+/*  const handleUpdateQuantity = (cartItemId, newQuantity) => {
+    dispatch(updateCartItemQuantity({ cartItemId, quantity: newQuantity }))
+      .unwrap()
+      .then(() => {
+        // Handle the success.
+        console.log("Item quantity updated successfully");
+        // Optionally, update the UI or state here if needed.
+      })
+      .catch((error) => {
+        // Handle any errors.
+        console.error("Failed to update item quantity:", error);
+        alert("Failed to update item quantity. Please try again.");
+      });
+  };*/
+
+/*<td> 
+  <button onClick={() =>handleUpdateQuantity(cartItem.cartItemId,cartItem.quantity + 1)}>+</button>
+  {cartItem.quantity}
+  <button onClick={() =>handleUpdateQuantity(cartItem.cartItemId,Math.max(cartItem.quantity - 1, 0))}> -</button>
+  </td>
+   */

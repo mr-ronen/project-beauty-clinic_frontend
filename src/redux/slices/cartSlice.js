@@ -24,7 +24,7 @@ export const addItemToCart = createAsyncThunk(
         productId,
         quantity,
       });
-      return response.data; 
+      return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -37,7 +37,7 @@ export const removeItemFromCart = createAsyncThunk(
   async (cartItemId, { rejectWithValue }) => {
     try {
       const response = await apiClient.delete(`/api/cart/remove/${cartItemId}`);
-      return response.data; 
+      return cartItemId;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -52,7 +52,7 @@ export const updateCartItemQuantity = createAsyncThunk(
       const response = await apiClient.put(`/api/cart/update/${cartItemId}`, {
         quantity,
       });
-      return response.data; //backend returns the updated cart items
+      return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -92,14 +92,21 @@ const cartSlice = createSlice({
       })
       // removeItemFromCart
       .addCase(removeItemFromCart.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = state.items.filter(
+          (item) => item.cartItemId !== action.payload
+        );
       })
       .addCase(removeItemFromCart.rejected, (state, action) => {
         state.error = action.payload;
       })
       // updateCartItemQuantity
       .addCase(updateCartItemQuantity.fulfilled, (state, action) => {
-        state.items = action.payload;
+        const index = state.items.findIndex(
+          (item) => item.cartItemId === action.meta.arg.cartItemId
+        );
+        if (index !== -1) {
+          state.items[index] = { ...state.items[index], ...action.payload };
+        }
       })
       .addCase(updateCartItemQuantity.rejected, (state, action) => {
         state.error = action.payload;
