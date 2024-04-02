@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/slices/productSlice";
@@ -12,6 +12,7 @@ const ProductPage = () => {
   const { products, loading, error } = useSelector((state) => state.product);
   const user = useSelector((state) => state.auth.user); // Assuming you store user info here
   const product = products.find((p) => p.productId === Number(productId));
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (products.length === 0) {
@@ -33,6 +34,8 @@ const ProductPage = () => {
           quantity: 1, 
         })
       );
+      setShowPopup(true); // Show popup
+      setTimeout(() => setShowPopup(false), 3000); // Hide popup after 3 seconds
     }
   };
 
@@ -66,6 +69,7 @@ const ProductPage = () => {
           <button className="add-to-cart-btn" onClick={handleAddToCart}>
             Add to Cart
           </button>
+          {showPopup && <div className="add-to-cart-popup">Added to Cart!</div>}
         </div>
       </div>
     </div>
