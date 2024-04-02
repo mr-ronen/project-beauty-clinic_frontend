@@ -1,11 +1,11 @@
 .card {
   display: flex;
   width: 50%;
-  background: #e1e0e0;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 50px; 
+  margin-bottom: 50px;
 }
 
 .card-image-container {
@@ -19,8 +19,9 @@
 }
 
 .card-content {
+  background-color: #e1dbdb;
   padding: 20px;
-  text-align: right; 
+  text-align: right;
 }
 
 .card-title {
@@ -36,7 +37,7 @@
 
 .card-button {
   background: #000000;
-  color: white;
+  color: rgb(251, 251, 251);
   border: none;
   padding: 10px 20px;
   cursor: pointer;

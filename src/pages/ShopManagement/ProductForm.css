@@ -26,6 +26,19 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.close-form-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.close-form-button:hover {
+  opacity: 1;
+}
 
 /* Adjustments for medium screens (800px - 1200px) */
 @media (max-width: 1200px) {

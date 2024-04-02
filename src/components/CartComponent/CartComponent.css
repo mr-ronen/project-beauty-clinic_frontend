@@ -37,6 +37,12 @@
   margin-top: 20px;
 }
 
+.cart-summary h4 {
+  text-align: center;
+  margin-top: 100px;
+  
+}
+
 /* Responsive design adjustments */
 @media (max-width: 768px) {
   .cart-table,

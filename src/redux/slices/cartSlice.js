@@ -36,7 +36,7 @@ export const removeItemFromCart = createAsyncThunk(
   "cart/removeItemFromCart",
   async (cartItemId, { rejectWithValue }) => {
     try {
-      const response = await apiClient.delete(`/api/cart/remove/${cartItemId}`);
+      await apiClient.delete(`/api/cart/remove/${cartItemId}`); // Directly await the promise without assigning its result
       return cartItemId;
     } catch (err) {
       return rejectWithValue(err.response.data);

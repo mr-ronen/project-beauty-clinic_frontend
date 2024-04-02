@@ -31,7 +31,7 @@ const ShopManagement = () => {
     setEditMode(true);
   };
 
-  const handleUpdate = (productData) => {
+  /*const handleUpdate = (productData) => {
     dispatch(
       updateProduct({
         ...productData,
@@ -46,12 +46,18 @@ const ShopManagement = () => {
       .catch((error) => {
         console.error("Failed to update product:", error);
       });
-  };
+  };*/
 
   // Function to toggle the form visibility
   const toggleAddForm = () => {
     setShowAddForm(!showAddForm);
   };
+
+  const closeForm = () => {
+    setShowAddForm(false);
+    setEditMode(false);
+  };
+
   const handleDelete = (productId) => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete this product?"
@@ -60,6 +66,7 @@ const ShopManagement = () => {
       dispatch(deleteProduct(productId))
         .then(() => {
           alert("Product successfully deleted.");
+          dispatch(fetchProducts()); 
         })
         .catch((error) => {
           console.error("Deletion failed:", error);
@@ -83,14 +90,19 @@ const ShopManagement = () => {
           <ProductForm
             product={{}} // Pass an empty object for a new product
             isEditing={false}
-            onUpdate={() => {}}
+            onUpdate={() => dispatch(fetchProducts())}
+            onClose={closeForm}
           />
         )}
         {editMode && (
           <ProductForm
             product={currentProduct}
-            onUpdate={handleUpdate}
             isEditing={editMode}
+            onUpdate={() => {
+              dispatch(fetchProducts());
+              setEditMode(false); 
+            }}
+            onClose={closeForm}
           />
         )}
         <table className="product-table">

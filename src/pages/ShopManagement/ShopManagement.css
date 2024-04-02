@@ -1,28 +1,28 @@
 .add-product-btn {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  padding: 12px 24px; /* Padding for a larger click area and balanced spacing */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Slightly larger font size for readability */
-  transition: all 0.3s; /* Smooth transition for hover effects */
-  box-shadow: 0 2px #2c7a2b; /* Simulate a 3D effect */
+  background-color: #4caf50; 
+  color: white; 
+  padding: 12px 24px;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  transition: all 0.3s; 
+  box-shadow: 0 2px #2c7a2b; 
 }
 
 .add-product-btn:hover,
 .add-product-btn:focus {
-  background-color: #45a049; /* Slightly lighter green on hover/focus */
-  box-shadow: 0 4px #2c7a2b; /* Increase shadow to enhance 3D effect */
+  background-color: #45a049; 
+  box-shadow: 0 4px #2c7a2b; 
   transform: translateY(
     -2px
-  ); /* Move the button up slightly to simulate a button press */
+  ); 
 }
 
 .add-product-btn:active {
-  background-color: #3e8e41; /* Even lighter green for active state */
-  box-shadow: 0 1px #2c7a2b; /* Reduce shadow to simulate the button being pressed */
-  transform: translateY(1px); /* Button moves down slightly when pressed */
+  background-color: #3e8e41; 
+  box-shadow: 0 1px #2c7a2b; 
+  transform: translateY(1px); 
 }
 
 .title {
